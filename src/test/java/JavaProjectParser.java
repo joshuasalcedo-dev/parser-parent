@@ -203,7 +203,7 @@ public class JavaProjectParser {
         
         metrics.forEach(m -> {
             System.out.printf("%-30s | %7d | %6d | %10.2f | %8d | %8.2f | %20.2f%n",
-                m.className.length() > 30 ? "..." + m.className.substring(m.className.length() - 27) : m.className,
+                m.className.length() > 30 ? "..." + m.className.substring(Math.max(0, m.className.length() - 27)) : m.className,
                 m.methodCount,
                 m.fieldCount,
                 m.complexity,

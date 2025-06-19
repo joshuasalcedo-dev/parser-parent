@@ -1,14 +1,16 @@
+package io.joshuasalcedo.parser.java.parser;
+
 import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.ParseResult;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.*;
-import com.github.javaparser.ast.expr.AnnotationExpr;
-import com.github.javaparser.ast.type.ClassOrInterfaceType;
-import com.github.javaparser.ast.type.Type;
+
 import com.github.javaparser.ast.nodeTypes.NodeWithModifiers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import io.joshuasalcedo.parser.java.model.*;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -54,7 +56,13 @@ record ProjectAnalysis(
 public class JavaProjectParser {
     
     private final Map<String, ClassRepresentation> classMap = new HashMap<>();
-    private final JavaParser javaParser = new JavaParser();
+    private final JavaParser javaParser;
+    
+    public JavaProjectParser() {
+        ParserConfiguration config = new ParserConfiguration();
+        config.setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_17);
+        this.javaParser = new JavaParser(config);
+    }
     
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -203,7 +211,7 @@ public class JavaProjectParser {
         
         metrics.forEach(m -> {
             System.out.printf("%-30s | %7d | %6d | %10.2f | %8d | %8.2f | %20.2f%n",
-                m.className.length() > 30 ? "..." + m.className.substring(m.className.length() - 27) : m.className,
+                m.className.length() > 30 ? "..." + m.className.substring(Math.max(0, m.className.length() - 27)) : m.className,
                 m.methodCount,
                 m.fieldCount,
                 m.complexity,
@@ -1362,265 +1370,3 @@ public class JavaProjectParser {
     record LintIssue(String type, String location, String message) {}
 }
 
-// Representation classes
-
-class ProjectRepresentation {
-    private final String name;
-    private final String rootPath;
-    private final List<ClassRepresentation> classes = new ArrayList<>();
-    
-    public ProjectRepresentation(String name, String rootPath) {
-        this.name = name;
-        this.rootPath = rootPath;
-    }
-    
-    public void addClass(ClassRepresentation classRep) {
-        classes.add(classRep);
-    }
-    
-    public List<ClassRepresentation> getClasses() {
-        return classes;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public String getRootPath() {
-        return rootPath;
-    }
-    
-    public void printStructure() {
-        System.out.println("Project: " + name);
-        System.out.println("Root: " + rootPath);
-        System.out.println("Classes found: " + classes.size());
-        System.out.println();
-        
-        classes.forEach(classRep -> {
-            classRep.printStructure(0);
-            System.out.println();
-        });
-    }
-}
-
-class ClassRepresentation {
-    private String name;
-    private String packageName;
-    private String filePath;
-    private boolean isInterface;
-    private boolean isEnum;
-    private boolean isAbstract;
-    private List<String> annotations = new ArrayList<>();
-    private List<String> extendedTypes = new ArrayList<>();
-    private List<String> implementedInterfaces = new ArrayList<>();
-    private List<FieldRepresentation> fields = new ArrayList<>();
-    private List<MethodRepresentation> methods = new ArrayList<>();
-    private List<ConstructorRepresentation> constructors = new ArrayList<>();
-    
-    public String getFullyQualifiedName() {
-        return packageName.isEmpty() ? name : packageName + "." + name;
-    }
-    
-    public void printStructure(int indent) {
-        String indentStr = "  ".repeat(indent);
-        
-        // Print class header
-        System.out.print(indentStr);
-        if (!annotations.isEmpty()) {
-            System.out.print(annotations.stream()
-                .map(a -> "@" + a)
-                .collect(Collectors.joining(" ")) + " ");
-        }
-        
-        if (isInterface) {
-            System.out.print("interface ");
-        } else if (isEnum) {
-            System.out.print("enum ");
-        } else {
-            if (isAbstract) System.out.print("abstract ");
-            System.out.print("class ");
-        }
-        
-        System.out.print(name);
-        
-        if (!extendedTypes.isEmpty()) {
-            System.out.print(" extends " + String.join(", ", extendedTypes));
-        }
-        
-        if (!implementedInterfaces.isEmpty()) {
-            System.out.print(" implements " + String.join(", ", implementedInterfaces));
-        }
-        
-        System.out.println();
-        System.out.println(indentStr + "Package: " + packageName);
-        System.out.println(indentStr + "File: " + filePath);
-        
-        // Print fields
-        if (!fields.isEmpty()) {
-            System.out.println(indentStr + "Fields:");
-            fields.forEach(field -> field.printStructure(indent + 1));
-        }
-        
-        // Print constructors
-        if (!constructors.isEmpty()) {
-            System.out.println(indentStr + "Constructors:");
-            constructors.forEach(constructor -> constructor.printStructure(indent + 1));
-        }
-        
-        // Print methods
-        if (!methods.isEmpty()) {
-            System.out.println(indentStr + "Methods:");
-            methods.forEach(method -> method.printStructure(indent + 1));
-        }
-    }
-    
-    // Getters and setters
-    public String getName() { return name; }
-    public String getPackageName() { return packageName; }
-    public String getFilePath() { return filePath; }
-    public boolean isInterface() { return isInterface; }
-    public boolean isEnum() { return isEnum; }
-    public boolean isAbstract() { return isAbstract; }
-    public List<String> getAnnotations() { return annotations; }
-    public List<String> getExtendedTypes() { return extendedTypes; }
-    public List<String> getImplementedInterfaces() { return implementedInterfaces; }
-    public List<FieldRepresentation> getFields() { return fields; }
-    public List<MethodRepresentation> getMethods() { return methods; }
-    public List<ConstructorRepresentation> getConstructors() { return constructors; }
-    
-    public void setName(String name) { this.name = name; }
-    public void setPackageName(String packageName) { this.packageName = packageName; }
-    public void setFilePath(String filePath) { this.filePath = filePath; }
-    public void setInterface(boolean isInterface) { this.isInterface = isInterface; }
-    public void setEnum(boolean isEnum) { this.isEnum = isEnum; }
-    public void setAbstract(boolean isAbstract) { this.isAbstract = isAbstract; }
-    public void addAnnotation(String annotation) { annotations.add(annotation); }
-    public void addExtendedType(String type) { extendedTypes.add(type); }
-    public void addImplementedInterface(String interfaceName) { implementedInterfaces.add(interfaceName); }
-    public void addField(FieldRepresentation field) { fields.add(field); }
-    public void addMethod(MethodRepresentation method) { methods.add(method); }
-    public void addConstructor(ConstructorRepresentation constructor) { constructors.add(constructor); }
-}
-
-class FieldRepresentation {
-    private String name;
-    private String type;
-    private String visibility;
-    private boolean isStatic;
-    private boolean isFinal;
-    private List<String> annotations = new ArrayList<>();
-    
-    public void printStructure(int indent) {
-        String indentStr = "  ".repeat(indent);
-        System.out.print(indentStr);
-        
-        if (!annotations.isEmpty()) {
-            System.out.print(annotations.stream()
-                .map(a -> "@" + a)
-                .collect(Collectors.joining(" ")) + " ");
-        }
-        
-        System.out.print(visibility + " ");
-        if (isStatic) System.out.print("static ");
-        if (isFinal) System.out.print("final ");
-        System.out.println(type + " " + name);
-    }
-    
-    // Getters and setters
-    public String getName() { return name; }
-    public String getType() { return type; }
-    public String getVisibility() { return visibility; }
-    public boolean isStatic() { return isStatic; }
-    public boolean isFinal() { return isFinal; }
-    public List<String> getAnnotations() { return annotations; }
-    
-    public void setName(String name) { this.name = name; }
-    public void setType(String type) { this.type = type; }
-    public void setVisibility(String visibility) { this.visibility = visibility; }
-    public void setStatic(boolean isStatic) { this.isStatic = isStatic; }
-    public void setFinal(boolean isFinal) { this.isFinal = isFinal; }
-    public void addAnnotation(String annotation) { annotations.add(annotation); }
-}
-
-class MethodRepresentation {
-    private String name;
-    private String returnType;
-    private String visibility;
-    private boolean isStatic;
-    private boolean isAbstract;
-    private List<String> annotations = new ArrayList<>();
-    private List<ParameterRepresentation> parameters = new ArrayList<>();
-    
-    public void printStructure(int indent) {
-        String indentStr = "  ".repeat(indent);
-        System.out.print(indentStr);
-        
-        if (!annotations.isEmpty()) {
-            System.out.print(annotations.stream()
-                .map(a -> "@" + a)
-                .collect(Collectors.joining(" ")) + " ");
-        }
-        
-        System.out.print(visibility + " ");
-        if (isStatic) System.out.print("static ");
-        if (isAbstract) System.out.print("abstract ");
-        System.out.print(returnType + " " + name + "(");
-        
-        System.out.print(parameters.stream()
-            .map(p -> p.getType() + " " + p.getName())
-            .collect(Collectors.joining(", ")));
-        
-        System.out.println(")");
-    }
-    
-    // Getters and setters
-    public String getName() { return name; }
-    public String getReturnType() { return returnType; }
-    public String getVisibility() { return visibility; }
-    public boolean isStatic() { return isStatic; }
-    public boolean isAbstract() { return isAbstract; }
-    public List<String> getAnnotations() { return annotations; }
-    public List<ParameterRepresentation> getParameters() { return parameters; }
-    
-    public void setName(String name) { this.name = name; }
-    public void setReturnType(String returnType) { this.returnType = returnType; }
-    public void setVisibility(String visibility) { this.visibility = visibility; }
-    public void setStatic(boolean isStatic) { this.isStatic = isStatic; }
-    public void setAbstract(boolean isAbstract) { this.isAbstract = isAbstract; }
-    public void addAnnotation(String annotation) { annotations.add(annotation); }
-    public void addParameter(ParameterRepresentation param) { parameters.add(param); }
-}
-
-class ConstructorRepresentation {
-    private String visibility;
-    private List<ParameterRepresentation> parameters = new ArrayList<>();
-    
-    public void printStructure(int indent) {
-        String indentStr = "  ".repeat(indent);
-        System.out.print(indentStr);
-        System.out.print(visibility + " <constructor>(");
-        
-        System.out.print(parameters.stream()
-            .map(p -> p.getType() + " " + p.getName())
-            .collect(Collectors.joining(", ")));
-        
-        System.out.println(")");
-    }
-    
-    // Getters and setters
-    public void setVisibility(String visibility) { this.visibility = visibility; }
-    public void addParameter(ParameterRepresentation param) { parameters.add(param); }
-}
-
-class ParameterRepresentation {
-    private final String name;
-    private final String type;
-    
-    public ParameterRepresentation(String name, String type) {
-        this.name = name;
-        this.type = type;
-    }
-    
-    public String getName() { return name; }
-    public String getType() { return type; }
-}

@@ -1,0 +1,40 @@
+# Project Architecture Diagram
+
+direction: down
+
+classes: {
+  interface: {
+    shape: hexagon
+    style.fill: "#E8FDE8"
+    style.stroke: "#4CAF50"
+  }
+  abstract: {
+    shape: rectangle
+    style.fill: "#FFF4E8"
+    style.stroke: "#FF9800"
+    style.stroke-dash: 3
+  }
+  enum: {
+    shape: cylinder
+    style.fill: "#F4E8FD"
+    style.stroke: "#9C27B0"
+  }
+}
+
+: {
+  label: ""
+  style.stroke-width: 2
+  style.border-radius: 8
+  style.fill: "#F5F5F5"
+
+  JavaProjectParser: {
+    label: "JavaProjectParser"
+    tooltip: |md
+      **JavaProjectParser**
+      - Methods: 25
+      - Fields: 2
+    |
+  }
+}
+
+# Connections

@@ -3,6 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.joshuasalcedo.parser</groupId>
   <artifactId>parser-parent</artifactId>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <build>
     <plugins>
@@ -49,6 +50,9 @@
       </plugin>
     </plugins>
   </build>
+  <modules>
+    <module>parser-java</module>
+  </modules>
   <repositories>
     <repository>
       <releases>

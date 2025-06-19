@@ -1,0 +1,20 @@
+@startuml
+!theme plain
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam classFontSize 12
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor<<interface>> #E8FDE8
+  BorderColor<<interface>> #4CAF50
+  BackgroundColor<<abstract>> #FFF4E8
+  BorderColor<<abstract>> #FF9800
+  BackgroundColor<<enum>> #F4E8FD
+  BorderColor<<enum>> #9C27B0
+  BackgroundColor #E8F4FD
+  BorderColor #2196F3
+}
+
+' Relationships
+
+@enduml

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="type" for="node" attr.name="type" attr.type="string"/>
+  <key id="package" for="node" attr.name="package" attr.type="string"/>
+  <key id="methods" for="node" attr.name="methods" attr.type="int"/>
+  <key id="fields" for="node" attr.name="fields" attr.type="int"/>
+  <key id="complexity" for="node" attr.name="complexity" attr.type="double"/>
+  <key id="coupling" for="node" attr.name="coupling" attr.type="int"/>
+  <key id="instability" for="node" attr.name="instability" attr.type="double"/>
+  <key id="deptype" for="edge" attr.name="dependency_type" attr.type="string"/>
+
+  <graph id="ProjectGraph" edgedefault="directed">
+    <node id="JavaProjectParser">
+      <data key="type">class</data>
+      <data key="package"></data>
+      <data key="methods">25</data>
+      <data key="fields">2</data>
+      <data key="instability">0.00</data>
+    </node>
+  </graph>
+</graphml>

@@ -735,7 +735,8 @@ public class GraphAnalyzer extends AbstractAnalyzer<GraphResult> {
     
     @Override
     public void exportResults(GraphResult results, String outputPath) {
-        String baseName = outputPath.substring(0, outputPath.lastIndexOf('.'));
+        int lastDotIndex = outputPath.lastIndexOf('.');
+        String baseName = lastDotIndex > 0 ? outputPath.substring(0, lastDotIndex) : outputPath;
         
         try {
             // Export DOT

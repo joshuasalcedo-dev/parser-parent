@@ -1,0 +1,35 @@
+digraph ProjectDependencies {
+  rankdir=TB;
+  node [shape=box, style="rounded,filled", fontname="Arial"];
+  edge [fontname="Arial", fontsize=10];
+
+  // Node styles
+  node [fillcolor="#E8F4FD"] // default for classes
+
+  subgraph cluster_0 {
+    label="";
+    style=filled;
+    fillcolor="#F0F0F0";
+    fontsize=12;
+
+    JavaProjectParser [label="JavaProjectParser", fillcolor="#E8F4FD", shape=box, tooltip="JavaProjectParser\nMethods: 25\nFields: 2\nPackage: "];
+  }
+
+  // Dependencies
+
+  // Legend
+  subgraph cluster_legend {
+    label="Legend";
+    style=filled;
+    fillcolor=white;
+    node [shape=box, style="rounded,filled"];
+    
+    class_node [label="Class", fillcolor="#E8F4FD"];
+    interface_node [label="Interface", fillcolor="#E8FDE8", shape=diamond];
+    abstract_node [label="Abstract", fillcolor="#FFF4E8"];
+    enum_node [label="Enum", fillcolor="#F4E8FD", shape=octagon];
+    
+    edge [style=invis];
+    class_node -> interface_node -> abstract_node -> enum_node;
+  }
+}
