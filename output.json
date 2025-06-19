@@ -1,0 +1,26 @@
+{
+  "project": {
+    "name": ".",
+    "rootPath": ".",
+    "classes": []
+  },
+  "statistics": {
+    "totalClasses": 0,
+    "totalInterfaces": 0,
+    "totalEnums": 0,
+    "totalAbstractClasses": 0,
+    "totalMethods": 0,
+    "totalFields": 0,
+    "totalConstructors": 0,
+    "totalPublicMethods": 0,
+    "totalPrivateMethods": 0,
+    "totalProtectedMethods": 0,
+    "totalStaticMethods": 0,
+    "totalAnnotations": 0,
+    "totalLinesOfCode": 0,
+    "annotationUsage": {},
+    "packageDistribution": {},
+    "classComplexities": []
+  },
+  "analysisTimestamp": 1750355720629
+}
