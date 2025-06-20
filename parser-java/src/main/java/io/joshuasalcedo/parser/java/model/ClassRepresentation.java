@@ -1,18 +1,22 @@
 package io.joshuasalcedo.parser.java.model;
 
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Represents a parsed Java class, interface, or enum
+ */
 public class ClassRepresentation {
+    private String accessModifier = "public";
     private String name;
     private String packageName;
     private String filePath;
     private boolean isInterface;
     private boolean isEnum;
     private boolean isAbstract;
+    private boolean isPackagePrivate = false;
     private List<String> annotations = new ArrayList<>();
     private List<String> extendedTypes = new ArrayList<>();
     private List<String> implementedInterfaces = new ArrayList<>();
@@ -29,6 +33,12 @@ public class ClassRepresentation {
         
         // Print class header
         System.out.print(indentStr);
+        
+        // Print access modifier
+        if (!"public".equals(accessModifier)) {
+            System.out.print(accessModifier + " ");
+        }
+        
         if (!annotations.isEmpty()) {
             System.out.print(annotations.stream()
                 .map(a -> "@" + a)
@@ -89,6 +99,8 @@ public class ClassRepresentation {
     public List<String> getImplementedInterfaces() { return implementedInterfaces; }
     public List<FieldRepresentation> getFields() { return fields; }
     public List<MethodRepresentation> getMethods() { return methods; }
+    public String getAccessModifier() { return accessModifier; }
+    public boolean isPackagePrivate() { return isPackagePrivate; }
     public List<ConstructorRepresentation> getConstructors() { return constructors; }
     
     public void setName(String name) { this.name = name; }
@@ -103,4 +115,6 @@ public class ClassRepresentation {
     public void addField(FieldRepresentation field) { fields.add(field); }
     public void addMethod(MethodRepresentation method) { methods.add(method); }
     public void addConstructor(ConstructorRepresentation constructor) { constructors.add(constructor); }
+    public void setAccessModifier(String accessModifier) { this.accessModifier = accessModifier; }
+    public void setPackagePrivate(boolean isPackagePrivate) { this.isPackagePrivate = isPackagePrivate; }
 }

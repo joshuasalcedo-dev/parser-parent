@@ -1,10 +1,11 @@
 package io.joshuasalcedo.parser.java.model;
 
-
 import java.util.List;
 import java.util.Map;
 
-// Statistics Records
+/**
+ * Statistics about a Java project
+ */
 public record ProjectStatistics(
     int totalClasses,
     int totalInterfaces,
@@ -23,3 +24,4 @@ public record ProjectStatistics(
     Map<String, Integer> packageDistribution,
     List<ClassComplexity> classComplexities
 ) {}
+

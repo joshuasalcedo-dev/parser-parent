@@ -6,6 +6,9 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/parser-java/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-starter-parser/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-starter-parser/test/pom.xml" />
+        <option value="$PROJECT_DIR$/parser-maven/pom.xml" />
       </list>
     </option>
   </component>

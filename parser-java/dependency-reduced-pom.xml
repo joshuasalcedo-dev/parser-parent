@@ -46,7 +46,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>io.joshuasalcedo.parser.java.JavaAnalyzerCLI</mainClass>
+              <mainClass>io.joshuasalcedo.parser.java.parser.SimpleAnalyzerCLI</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -64,7 +64,7 @@
               <finalName>java-parser-cli</finalName>
               <transformers>
                 <transformer>
-                  <mainClass>io.joshuasalcedo.parser.java.JavaAnalyzerCLI</mainClass>
+                  <mainClass>io.joshuasalcedo.parser.java.parser.SimpleAnalyzerCLI</mainClass>
                 </transformer>
                 <transformer />
               </transformers>
@@ -87,17 +87,8 @@
         <artifactId>native-maven-plugin</artifactId>
         <version>0.9.28</version>
         <extensions>true</extensions>
-        <executions>
-          <execution>
-            <id>build-native</id>
-            <phase>package</phase>
-            <goals>
-              <goal>compile-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
         <configuration>
-          <mainClass>io.joshuasalcedo.parser.java.JavaAnalyzerCLI</mainClass>
+          <mainClass>io.joshuasalcedo.parser.java.parser.SimpleAnalyzerCLI</mainClass>
           <imageName>java-parser</imageName>
           <buildArgs>
             <buildArg>--no-fallback</buildArg>
@@ -122,6 +113,15 @@
           <plugin>
             <groupId>org.graalvm.buildtools</groupId>
             <artifactId>native-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>build-native</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>compile-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>

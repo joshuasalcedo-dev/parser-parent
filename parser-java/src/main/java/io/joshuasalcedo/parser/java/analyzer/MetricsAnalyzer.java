@@ -7,7 +7,6 @@ import com.github.javaparser.ast.stmt.*;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.github.javaparser.StaticJavaParser;
 import io.joshuasalcedo.parser.java.model.*;
-import io.joshuasalcedo.parser.java.result.*;
 
 import java.io.File;
 import java.security.MessageDigest;

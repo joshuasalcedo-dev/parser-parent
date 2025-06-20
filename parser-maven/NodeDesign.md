@@ -1,0 +1,10 @@
+"groupId": "org.apache.maven",
+"artifactId": "maven-core",
+"version": "4.0.0-rc-3",
+"scope": "compile",
+"type": "jar",
+"optional": false,
+"description": "org.apache.maven",
+"latestVersion": "4.0.0-rc-3",
+"isOutdated": false,
+"url": "https:// (their link or something"

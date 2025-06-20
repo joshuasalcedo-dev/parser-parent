@@ -1,10 +1,10 @@
 package io.joshuasalcedo.parser.java.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-
+import java.util.stream.Collectors; /**
+ * Represents a constructor in a Java class
+ */
 public class ConstructorRepresentation {
     private String visibility;
     private List<ParameterRepresentation> parameters = new ArrayList<>();
@@ -22,6 +22,9 @@ public class ConstructorRepresentation {
     }
     
     // Getters and setters
+    public String getVisibility() { return visibility; }
+    public List<ParameterRepresentation> getParameters() { return parameters; }
+    
     public void setVisibility(String visibility) { this.visibility = visibility; }
     public void addParameter(ParameterRepresentation param) { parameters.add(param); }
 }

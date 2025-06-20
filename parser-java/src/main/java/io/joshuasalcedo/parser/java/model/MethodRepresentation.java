@@ -1,10 +1,10 @@
 package io.joshuasalcedo.parser.java.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-
+import java.util.stream.Collectors; /**
+ * Represents a method in a Java class
+ */
 public class MethodRepresentation {
     private String name;
     private String returnType;

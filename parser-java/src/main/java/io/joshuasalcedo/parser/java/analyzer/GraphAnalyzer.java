@@ -1,8 +1,8 @@
 package io.joshuasalcedo.parser.java.analyzer;
 
 import io.joshuasalcedo.parser.java.model.*;
-import io.joshuasalcedo.parser.java.result.GraphResult;
-import io.joshuasalcedo.parser.java.result.DependencyResult;
+import io.joshuasalcedo.parser.java.model.GraphResult;
+import io.joshuasalcedo.parser.java.model.DependencyResult;
 
 import java.io.FileWriter;
 import java.io.IOException;

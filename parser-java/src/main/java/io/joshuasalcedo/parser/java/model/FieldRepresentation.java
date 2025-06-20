@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Represents a field in a Java class
+ */
 public class FieldRepresentation {
     private String name;
     private String type;
@@ -43,3 +46,4 @@ public class FieldRepresentation {
     public void setFinal(boolean isFinal) { this.isFinal = isFinal; }
     public void addAnnotation(String annotation) { annotations.add(annotation); }
 }
+

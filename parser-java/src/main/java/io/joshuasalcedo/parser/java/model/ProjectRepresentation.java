@@ -1,8 +1,12 @@
-package io.joshuasalcedo.parser.java.model;// Representation classes
+package io.joshuasalcedo.parser.java.model;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a parsed Java project
+ */
 public class ProjectRepresentation {
     private final String name;
     private final String rootPath;
