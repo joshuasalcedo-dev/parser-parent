@@ -27,6 +27,11 @@
             <artifactId>maven-resolver-api</artifactId>
             <version>2.0.9</version>
         </dependency>
+        <dependency>
+            <groupId>io.joshuasalcedo.parser</groupId>
+            <artifactId>parser-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!-- Add these dependencies to your pom.xml -->
 
         <!-- Plexus Container -->

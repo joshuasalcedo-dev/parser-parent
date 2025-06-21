@@ -13,6 +13,7 @@
         <module>parser-java</module>
         <module>springboot-starter-parser</module>
         <module>parser-maven</module>
+        <module>parser-common</module>
     </modules>
 
     <properties>
@@ -38,17 +39,6 @@
             <version>2.3.34</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math4-core -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-math4-core</artifactId>
-            <version>4.0-beta1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-statistics-distribution -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-statistics-distribution</artifactId>
-            <version>1.1</version>
-        </dependency>
 
     </dependencies>
 

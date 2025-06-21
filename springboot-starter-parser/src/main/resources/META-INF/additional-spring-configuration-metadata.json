@@ -1,0 +1,129 @@
+{
+  "properties": [
+    {
+      "name": "parser.java.auto-analyze-on-startup",
+      "type": "java.lang.Boolean",
+      "description": "Enable or disable automatic project analysis when the application starts up.",
+      "defaultValue": true
+    },
+    {
+      "name": "parser.java.project-path",
+      "type": "java.lang.String",
+      "description": "The root path of the Java project to analyze. If not specified, uses the application's working directory."
+    },
+    {
+      "name": "parser.java.parallel-analysis",
+      "type": "java.lang.Boolean",
+      "description": "Enable parallel analysis for improved performance on multi-core systems.",
+      "defaultValue": true
+    },
+    {
+      "name": "parser.java.thread-pool-size",
+      "type": "java.lang.Integer",
+      "description": "The number of threads to use for parallel analysis. Defaults to the number of available processors.",
+      "defaultValue": "Runtime.getRuntime().availableProcessors()"
+    },
+    {
+      "name": "parser.java.analyze-dependencies",
+      "type": "java.lang.Boolean",
+      "description": "Enable dependency analysis to detect coupling, circular dependencies, and dependency graphs.",
+      "defaultValue": true
+    },
+    {
+      "name": "parser.java.analyze-metrics",
+      "type": "java.lang.Boolean",
+      "description": "Enable code metrics analysis including complexity, maintainability, and quality scores.",
+      "defaultValue": true
+    },
+    {
+      "name": "parser.java.generate-graphs",
+      "type": "java.lang.Boolean",
+      "description": "Enable generation of dependency graphs and visual representations.",
+      "defaultValue": false
+    },
+    {
+      "name": "parser.java.api-path",
+      "type": "java.lang.String",
+      "description": "The base path for the parser REST API endpoints.",
+      "defaultValue": "/api/parser"
+    },
+    {
+      "name": "parser.java.view-path",
+      "type": "java.lang.String",
+      "description": "The path for the parser web view dashboard endpoint.",
+      "defaultValue": "/api/parser/view"
+    },
+    {
+      "name": "parser.java.enable-web-view",
+      "type": "java.lang.Boolean",
+      "description": "Enable or disable the web view dashboard for visualizing analysis results.",
+      "defaultValue": true
+    }
+  ],
+  "hints": [
+    {
+      "name": "parser.java.project-path",
+      "values": [
+        {
+          "value": ".",
+          "description": "Current directory"
+        },
+        {
+          "value": "./src/main/java",
+          "description": "Standard Maven/Gradle source directory"
+        }
+      ]
+    },
+    {
+      "name": "parser.java.api-path",
+      "values": [
+        {
+          "value": "/api/parser",
+          "description": "Default API path"
+        },
+        {
+          "value": "/parser",
+          "description": "Shorter API path"
+        },
+        {
+          "value": "/api/v1/parser",
+          "description": "Versioned API path"
+        }
+      ]
+    },
+    {
+      "name": "parser.java.thread-pool-size",
+      "values": [
+        {
+          "value": 1,
+          "description": "Single-threaded analysis"
+        },
+        {
+          "value": 4,
+          "description": "4 threads (typical for quad-core systems)"
+        },
+        {
+          "value": 8,
+          "description": "8 threads (for high-performance systems)"
+        }
+      ]
+    },
+    {
+      "name": "parser.java.view-path",
+      "values": [
+        {
+          "value": "/api/parser/view",
+          "description": "Default view path"
+        },
+        {
+          "value": "/parser/dashboard",
+          "description": "Alternative dashboard path"
+        },
+        {
+          "value": "/dashboard",
+          "description": "Simple dashboard path"
+        }
+      ]
+    }
+  ]
+}

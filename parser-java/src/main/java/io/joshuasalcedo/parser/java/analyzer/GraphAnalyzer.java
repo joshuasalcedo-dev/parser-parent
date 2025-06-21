@@ -2,7 +2,7 @@ package io.joshuasalcedo.parser.java.analyzer;
 
 import io.joshuasalcedo.parser.java.model.*;
 import io.joshuasalcedo.parser.java.model.GraphResult;
-import io.joshuasalcedo.parser.java.model.DependencyResult;
+import io.joshuasalcedo.parser.java.model.ProjectDependencyResult;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
  */
 public class GraphAnalyzer extends AbstractAnalyzer<GraphResult> {
     
-    private final DependencyResult dependencyResult;
+    private final ProjectDependencyResult projectDependencyResult;
     private final Map<String, ClassRepresentation> classMap;
     
-    public GraphAnalyzer(ProjectRepresentation project, DependencyResult dependencyResult) {
+    public GraphAnalyzer(ProjectRepresentation project, ProjectDependencyResult projectDependencyResult) {
         super(project);
-        this.dependencyResult = dependencyResult;
+        this.projectDependencyResult = projectDependencyResult;
         this.classMap = project.getClasses().stream()
             .collect(Collectors.toMap(ClassRepresentation::getFullyQualifiedName, c -> c));
     }
@@ -96,7 +96,7 @@ public class GraphAnalyzer extends AbstractAnalyzer<GraphResult> {
         
         // Add edges with different styles for different dependency types
         dot.append("  // Dependencies\n");
-        for (Map.Entry<String, Set<String>> entry : dependencyResult.classDependencies().entrySet()) {
+        for (Map.Entry<String, Set<String>> entry : projectDependencyResult.classDependencies().entrySet()) {
             String source = sanitizeNodeId(entry.getKey());
             
             for (String target : entry.getValue()) {
@@ -175,7 +175,7 @@ public class GraphAnalyzer extends AbstractAnalyzer<GraphResult> {
         mermaid.append("\n  %% Dependencies\n");
         
         // Add edges with labels
-        for (Map.Entry<String, Set<String>> entry : dependencyResult.classDependencies().entrySet()) {
+        for (Map.Entry<String, Set<String>> entry : projectDependencyResult.classDependencies().entrySet()) {
             String sourceId = nodeIds.get(entry.getKey());
             
             for (String target : entry.getValue()) {
@@ -262,12 +262,12 @@ public class GraphAnalyzer extends AbstractAnalyzer<GraphResult> {
             graphml.append("      <data key=\"fields\">").append(cls.getFields().size()).append("</data>\n");
             
             // Add metrics if available
-            Integer coupling = dependencyResult.efferentCoupling().get(cls.getFullyQualifiedName());
+            Integer coupling = projectDependencyResult.efferentCoupling().get(cls.getFullyQualifiedName());
             if (coupling != null) {
                 graphml.append("      <data key=\"coupling\">").append(coupling).append("</data>\n");
             }
             
-            Double instability = dependencyResult.instability().get(cls.getFullyQualifiedName());
+            Double instability = projectDependencyResult.instability().get(cls.getFullyQualifiedName());
             if (instability != null) {
                 graphml.append("      <data key=\"instability\">").append(String.format("%.2f", instability)).append("</data>\n");
             }
@@ -277,7 +277,7 @@ public class GraphAnalyzer extends AbstractAnalyzer<GraphResult> {
         
         // Add edges
         int edgeId = 0;
-        for (Map.Entry<String, Set<String>> entry : dependencyResult.classDependencies().entrySet()) {
+        for (Map.Entry<String, Set<String>> entry : projectDependencyResult.classDependencies().entrySet()) {
             String source = sanitizeNodeId(entry.getKey());
             
             for (String target : entry.getValue()) {
@@ -332,7 +332,7 @@ public class GraphAnalyzer extends AbstractAnalyzer<GraphResult> {
             .collect(Collectors.groupingBy(ClassRepresentation::getPackageName));
         
         // Calculate package dependencies for layout
-        Map<String, Set<String>> packageDeps = dependencyResult.packageDependencies();
+        Map<String, Set<String>> packageDeps = projectDependencyResult.packageDependencies();
         List<String> sortedPackages = topologicalSort(packageDeps);
         
         for (String pkg : sortedPackages) {
@@ -456,9 +456,9 @@ public class GraphAnalyzer extends AbstractAnalyzer<GraphResult> {
         }
         
         // Add notes for circular dependencies
-        if (!dependencyResult.circularDependencies().isEmpty()) {
+        if (!projectDependencyResult.circularDependencies().isEmpty()) {
             puml.append("\nnote top : Circular Dependencies Detected!\n");
-            for (List<String> cycle : dependencyResult.circularDependencies()) {
+            for (List<String> cycle : projectDependencyResult.circularDependencies()) {
                 puml.append("  ").append(String.join(" -> ", cycle)).append("\n");
             }
             puml.append("end note\n");
@@ -529,7 +529,7 @@ public class GraphAnalyzer extends AbstractAnalyzer<GraphResult> {
                 d2.append("      **").append(cls.getName()).append("**\n");
                 d2.append("      - Methods: ").append(cls.getMethods().size()).append("\n");
                 d2.append("      - Fields: ").append(cls.getFields().size()).append("\n");
-                Integer coupling = dependencyResult.efferentCoupling().get(cls.getFullyQualifiedName());
+                Integer coupling = projectDependencyResult.efferentCoupling().get(cls.getFullyQualifiedName());
                 if (coupling != null) {
                     d2.append("      - Dependencies: ").append(coupling).append("\n");
                 }
@@ -543,7 +543,7 @@ public class GraphAnalyzer extends AbstractAnalyzer<GraphResult> {
         
         // Add connections
         d2.append("# Connections\n");
-        for (Map.Entry<String, Set<String>> entry : dependencyResult.classDependencies().entrySet()) {
+        for (Map.Entry<String, Set<String>> entry : projectDependencyResult.classDependencies().entrySet()) {
             String source = entry.getKey();
             ClassRepresentation sourceClass = classMap.get(source);
             
@@ -701,14 +701,14 @@ public class GraphAnalyzer extends AbstractAnalyzer<GraphResult> {
         Map<String, Object> metrics = new HashMap<>();
         
         int nodeCount = project.getClasses().size();
-        int edgeCount = dependencyResult.classDependencies().values().stream()
+        int edgeCount = projectDependencyResult.classDependencies().values().stream()
             .mapToInt(Set::size)
             .sum();
         
         metrics.put("nodeCount", nodeCount);
         metrics.put("edgeCount", edgeCount);
         metrics.put("density", nodeCount > 1 ? (double) edgeCount / (nodeCount * (nodeCount - 1)) : 0.0);
-        metrics.put("circularDependencies", dependencyResult.circularDependencies().size());
+        metrics.put("circularDependencies", projectDependencyResult.circularDependencies().size());
         
         return metrics;
     }

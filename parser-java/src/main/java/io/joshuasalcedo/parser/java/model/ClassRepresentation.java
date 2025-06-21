@@ -15,6 +15,7 @@ public class ClassRepresentation {
     private String filePath;
     private boolean isInterface;
     private boolean isEnum;
+    private boolean isRecord;
     private boolean isAbstract;
     private boolean isPackagePrivate = false;
     private List<String> annotations = new ArrayList<>();
@@ -117,4 +118,12 @@ public class ClassRepresentation {
     public void addConstructor(ConstructorRepresentation constructor) { constructors.add(constructor); }
     public void setAccessModifier(String accessModifier) { this.accessModifier = accessModifier; }
     public void setPackagePrivate(boolean isPackagePrivate) { this.isPackagePrivate = isPackagePrivate; }
+
+    public void setRecord(boolean record) {
+        isRecord = record;
+    }
+
+    public boolean isRecord() {
+        return isRecord;
+    }
 }

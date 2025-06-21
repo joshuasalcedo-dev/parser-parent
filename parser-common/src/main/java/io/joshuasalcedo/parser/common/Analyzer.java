@@ -1,4 +1,4 @@
-package io.joshuasalcedo.parser.maven.analyzer;
+package io.joshuasalcedo.parser.common;
 
 @FunctionalInterface
 public interface Analyzer<T,R> {

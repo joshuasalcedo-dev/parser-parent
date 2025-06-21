@@ -1,0 +1,3218 @@
+{
+  "module": {
+    "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+    "modelEncoding": "UTF8",
+    "modelVersion": "4.0.0",
+    "groupId": "io.joshuasalcedo.parser",
+    "artifactId": "parser-parent",
+    "version": "1.0-SNAPSHOT",
+    "packaging": "pom",
+    "root": false,
+    "preserveModelVersion": false,
+    "licenses": [],
+    "developers": [],
+    "contributors": [],
+    "mailingLists": [],
+    "profiles": [],
+    "modules": [
+      "parser-java",
+      "springboot-starter-parser",
+      "parser-maven"
+    ],
+    "subprojects": [],
+    "properties": {
+      "maven.compiler.source": "24",
+      "maven.compiler.target": "24",
+      "project.build.sourceEncoding": "UTF-8"
+    },
+    "dependencies": [
+      {
+        "groupId": "com.google.code.gson",
+        "artifactId": "gson",
+        "version": "2.13.1",
+        "type": "jar",
+        "exclusions": [],
+        "locations": {
+          "groupId": {
+            "lineNumber": 29,
+            "columnNumber": 13,
+            "locations": {}
+          },
+          "version": {
+            "lineNumber": 31,
+            "columnNumber": 13,
+            "locations": {}
+          },
+          "": {
+            "lineNumber": 28,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "artifactId": {
+            "lineNumber": 30,
+            "columnNumber": 13,
+            "locations": {}
+          }
+        }
+      },
+      {
+        "groupId": "org.freemarker",
+        "artifactId": "freemarker",
+        "version": "2.3.34",
+        "type": "jar",
+        "exclusions": [],
+        "locations": {
+          "groupId": {
+            "lineNumber": 36,
+            "columnNumber": 13,
+            "locations": {}
+          },
+          "version": {
+            "lineNumber": 38,
+            "columnNumber": 13,
+            "locations": {}
+          },
+          "": {
+            "lineNumber": 35,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "artifactId": {
+            "lineNumber": 37,
+            "columnNumber": 13,
+            "locations": {}
+          }
+        }
+      }
+    ],
+    "repositories": [
+      {
+        "releases": {
+          "enabled": "true",
+          "updatePolicy": "daily",
+          "locations": {
+            "": {
+              "lineNumber": 48,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "enabled": {
+              "lineNumber": 49,
+              "columnNumber": 17,
+              "locations": {}
+            },
+            "updatePolicy": {
+              "lineNumber": 50,
+              "columnNumber": 17,
+              "locations": {}
+            }
+          }
+        },
+        "snapshots": {
+          "enabled": "false",
+          "locations": {
+            "": {
+              "lineNumber": 52,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "enabled": {
+              "lineNumber": 53,
+              "columnNumber": 17,
+              "locations": {}
+            }
+          }
+        },
+        "id": "central",
+        "url": "https://repo.maven.apache.org/maven2",
+        "layout": "default",
+        "locations": {
+          "url": {
+            "lineNumber": 46,
+            "columnNumber": 13,
+            "locations": {}
+          },
+          "": {
+            "lineNumber": 44,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "snapshots": {
+            "lineNumber": 52,
+            "columnNumber": 13,
+            "locations": {}
+          },
+          "id": {
+            "lineNumber": 45,
+            "columnNumber": 13,
+            "locations": {}
+          },
+          "layout": {
+            "lineNumber": 47,
+            "columnNumber": 13,
+            "locations": {}
+          },
+          "releases": {
+            "lineNumber": 48,
+            "columnNumber": 13,
+            "locations": {}
+          }
+        }
+      }
+    ],
+    "pluginRepositories": [],
+    "locations": {
+      "dependencies": {
+        "lineNumber": 24,
+        "columnNumber": 5,
+        "locations": {}
+      },
+      "version": {
+        "lineNumber": 9,
+        "columnNumber": 5,
+        "locations": {}
+      },
+      "modules": {
+        "lineNumber": 12,
+        "columnNumber": 5,
+        "locations": {
+          "0": {
+            "lineNumber": 13,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "1": {
+            "lineNumber": 14,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "2": {
+            "lineNumber": 15,
+            "columnNumber": 9,
+            "locations": {}
+          }
+        }
+      },
+      "": {
+        "lineNumber": 2,
+        "columnNumber": 1,
+        "locations": {}
+      },
+      "modelVersion": {
+        "lineNumber": 5,
+        "columnNumber": 5,
+        "locations": {}
+      },
+      "groupId": {
+        "lineNumber": 7,
+        "columnNumber": 5,
+        "locations": {}
+      },
+      "packaging": {
+        "lineNumber": 10,
+        "columnNumber": 5,
+        "locations": {}
+      },
+      "artifactId": {
+        "lineNumber": 8,
+        "columnNumber": 5,
+        "locations": {}
+      },
+      "properties": {
+        "lineNumber": 18,
+        "columnNumber": 5,
+        "locations": {
+          "maven.compiler.target": {
+            "lineNumber": 20,
+            "columnNumber": 34,
+            "locations": {}
+          },
+          "maven.compiler.source": {
+            "lineNumber": 19,
+            "columnNumber": 34,
+            "locations": {}
+          },
+          "project.build.sourceEncoding": {
+            "lineNumber": 21,
+            "columnNumber": 44,
+            "locations": {}
+          }
+        }
+      },
+      "repositories": {
+        "lineNumber": 43,
+        "columnNumber": 5,
+        "locations": {}
+      }
+    }
+  },
+  "subModules": [
+    {
+      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+      "modelEncoding": "UTF8",
+      "modelVersion": "4.0.0",
+      "parent": {
+        "groupId": "io.joshuasalcedo.parser",
+        "artifactId": "parser-parent",
+        "version": "1.0-SNAPSHOT",
+        "locations": {
+          "groupId": {
+            "lineNumber": 8,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "version": {
+            "lineNumber": 10,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "": {
+            "lineNumber": 7,
+            "columnNumber": 5,
+            "locations": {}
+          },
+          "artifactId": {
+            "lineNumber": 9,
+            "columnNumber": 9,
+            "locations": {}
+          }
+        }
+      },
+      "groupId": "io.joshuasalcedo.parser",
+      "artifactId": "parser-java",
+      "version": "1.0-SNAPSHOT",
+      "packaging": "jar",
+      "root": false,
+      "preserveModelVersion": false,
+      "licenses": [],
+      "developers": [],
+      "contributors": [],
+      "mailingLists": [],
+      "build": {
+        "sources": [],
+        "extensions": [],
+        "resources": [],
+        "testResources": [],
+        "filters": [],
+        "plugins": [
+          {
+            "groupId": "org.apache.maven.plugins",
+            "artifactId": "maven-compiler-plugin",
+            "version": "3.11.0",
+            "executions": [],
+            "dependencies": [],
+            "configuration": {
+              "prefix": "",
+              "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+              "name": "configuration",
+              "attributes": {},
+              "children": [
+                {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "source",
+                  "value": "24",
+                  "attributes": {},
+                  "children": [],
+                  "location": {
+                    "lineNumber": 89,
+                    "columnNumber": 21,
+                    "locations": {}
+                  }
+                },
+                {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "target",
+                  "value": "24",
+                  "attributes": {},
+                  "children": [],
+                  "location": {
+                    "lineNumber": 90,
+                    "columnNumber": 21,
+                    "locations": {}
+                  }
+                },
+                {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "annotationProcessorPaths",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "path",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "prefix": "",
+                          "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                          "name": "groupId",
+                          "value": "info.picocli",
+                          "attributes": {},
+                          "children": [],
+                          "location": {
+                            "lineNumber": 93,
+                            "columnNumber": 29,
+                            "locations": {}
+                          }
+                        },
+                        {
+                          "prefix": "",
+                          "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                          "name": "artifactId",
+                          "value": "picocli-codegen",
+                          "attributes": {},
+                          "children": [],
+                          "location": {
+                            "lineNumber": 94,
+                            "columnNumber": 29,
+                            "locations": {}
+                          }
+                        },
+                        {
+                          "prefix": "",
+                          "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                          "name": "version",
+                          "value": "4.7.7",
+                          "attributes": {},
+                          "children": [],
+                          "location": {
+                            "lineNumber": 95,
+                            "columnNumber": 29,
+                            "locations": {}
+                          }
+                        }
+                      ],
+                      "location": {
+                        "lineNumber": 92,
+                        "columnNumber": 25,
+                        "locations": {}
+                      }
+                    }
+                  ],
+                  "location": {
+                    "lineNumber": 91,
+                    "columnNumber": 21,
+                    "locations": {}
+                  }
+                },
+                {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "compilerArgs",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "arg",
+                      "value": "-Aproject\u003d${project.groupId}/${project.artifactId}",
+                      "attributes": {},
+                      "children": [],
+                      "location": {
+                        "lineNumber": 99,
+                        "columnNumber": 25,
+                        "locations": {}
+                      }
+                    }
+                  ],
+                  "location": {
+                    "lineNumber": 98,
+                    "columnNumber": 21,
+                    "locations": {}
+                  }
+                }
+              ],
+              "location": {
+                "lineNumber": 88,
+                "columnNumber": 17,
+                "locations": {}
+              }
+            },
+            "locations": {
+              "": {
+                "lineNumber": 84,
+                "columnNumber": 13,
+                "locations": {}
+              },
+              "groupId": {
+                "lineNumber": 85,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "configuration": {
+                "lineNumber": 88,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "version": {
+                "lineNumber": 87,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "artifactId": {
+                "lineNumber": 86,
+                "columnNumber": 17,
+                "locations": {}
+              }
+            }
+          },
+          {
+            "groupId": "org.apache.maven.plugins",
+            "artifactId": "maven-assembly-plugin",
+            "version": "3.6.0",
+            "executions": [
+              {
+                "id": "make-assembly",
+                "phase": "package",
+                "priority": 0,
+                "goals": [
+                  "single"
+                ],
+                "locations": {
+                  "goals": {
+                    "lineNumber": 123,
+                    "columnNumber": 25,
+                    "locations": {
+                      "0": {
+                        "lineNumber": 124,
+                        "columnNumber": 29,
+                        "locations": {}
+                      }
+                    }
+                  },
+                  "": {
+                    "lineNumber": 120,
+                    "columnNumber": 21,
+                    "locations": {}
+                  },
+                  "id": {
+                    "lineNumber": 121,
+                    "columnNumber": 25,
+                    "locations": {}
+                  },
+                  "phase": {
+                    "lineNumber": 122,
+                    "columnNumber": 25,
+                    "locations": {}
+                  }
+                }
+              }
+            ],
+            "dependencies": [],
+            "configuration": {
+              "prefix": "",
+              "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+              "name": "configuration",
+              "attributes": {},
+              "children": [
+                {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "descriptorRefs",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "descriptorRef",
+                      "value": "jar-with-dependencies",
+                      "attributes": {},
+                      "children": [],
+                      "location": {
+                        "lineNumber": 111,
+                        "columnNumber": 25,
+                        "locations": {}
+                      }
+                    }
+                  ],
+                  "location": {
+                    "lineNumber": 110,
+                    "columnNumber": 21,
+                    "locations": {}
+                  }
+                },
+                {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "archive",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "manifest",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "prefix": "",
+                          "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                          "name": "mainClass",
+                          "value": "io.joshuasalcedo.parser.java.parser.SimpleAnalyzerCLI",
+                          "attributes": {},
+                          "children": [],
+                          "location": {
+                            "lineNumber": 115,
+                            "columnNumber": 29,
+                            "locations": {}
+                          }
+                        }
+                      ],
+                      "location": {
+                        "lineNumber": 114,
+                        "columnNumber": 25,
+                        "locations": {}
+                      }
+                    }
+                  ],
+                  "location": {
+                    "lineNumber": 113,
+                    "columnNumber": 21,
+                    "locations": {}
+                  }
+                }
+              ],
+              "location": {
+                "lineNumber": 109,
+                "columnNumber": 17,
+                "locations": {}
+              }
+            },
+            "locations": {
+              "": {
+                "lineNumber": 105,
+                "columnNumber": 13,
+                "locations": {}
+              },
+              "executions": {
+                "lineNumber": 119,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "artifactId": {
+                "lineNumber": 107,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "version": {
+                "lineNumber": 108,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "groupId": {
+                "lineNumber": 106,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "configuration": {
+                "lineNumber": 109,
+                "columnNumber": 17,
+                "locations": {}
+              }
+            }
+          },
+          {
+            "groupId": "org.apache.maven.plugins",
+            "artifactId": "maven-shade-plugin",
+            "version": "3.5.1",
+            "executions": [
+              {
+                "id": "default",
+                "phase": "package",
+                "priority": 0,
+                "goals": [
+                  "shade"
+                ],
+                "configuration": {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "configuration",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "finalName",
+                      "value": "java-parser-cli",
+                      "attributes": {},
+                      "children": [],
+                      "location": {
+                        "lineNumber": 142,
+                        "columnNumber": 29,
+                        "locations": {}
+                      }
+                    },
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "transformers",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "prefix": "",
+                          "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                          "name": "transformer",
+                          "attributes": {
+                            "implementation": "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"
+                          },
+                          "children": [
+                            {
+                              "prefix": "",
+                              "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                              "name": "mainClass",
+                              "value": "io.joshuasalcedo.parser.java.parser.SimpleAnalyzerCLI",
+                              "attributes": {},
+                              "children": [],
+                              "location": {
+                                "lineNumber": 145,
+                                "columnNumber": 37,
+                                "locations": {}
+                              }
+                            }
+                          ],
+                          "location": {
+                            "lineNumber": 144,
+                            "columnNumber": 33,
+                            "locations": {}
+                          }
+                        },
+                        {
+                          "prefix": "",
+                          "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                          "name": "transformer",
+                          "attributes": {
+                            "implementation": "org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"
+                          },
+                          "children": [],
+                          "location": {
+                            "lineNumber": 147,
+                            "columnNumber": 33,
+                            "locations": {}
+                          }
+                        }
+                      ],
+                      "location": {
+                        "lineNumber": 143,
+                        "columnNumber": 29,
+                        "locations": {}
+                      }
+                    },
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "filters",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "prefix": "",
+                          "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                          "name": "filter",
+                          "attributes": {},
+                          "children": [
+                            {
+                              "prefix": "",
+                              "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                              "name": "artifact",
+                              "value": "*:*",
+                              "attributes": {},
+                              "children": [],
+                              "location": {
+                                "lineNumber": 151,
+                                "columnNumber": 37,
+                                "locations": {}
+                              }
+                            },
+                            {
+                              "prefix": "",
+                              "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                              "name": "excludes",
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "prefix": "",
+                                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                                  "name": "exclude",
+                                  "value": "META-INF/*.SF",
+                                  "attributes": {},
+                                  "children": [],
+                                  "location": {
+                                    "lineNumber": 153,
+                                    "columnNumber": 41,
+                                    "locations": {}
+                                  }
+                                },
+                                {
+                                  "prefix": "",
+                                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                                  "name": "exclude",
+                                  "value": "META-INF/*.DSA",
+                                  "attributes": {},
+                                  "children": [],
+                                  "location": {
+                                    "lineNumber": 154,
+                                    "columnNumber": 41,
+                                    "locations": {}
+                                  }
+                                },
+                                {
+                                  "prefix": "",
+                                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                                  "name": "exclude",
+                                  "value": "META-INF/*.RSA",
+                                  "attributes": {},
+                                  "children": [],
+                                  "location": {
+                                    "lineNumber": 155,
+                                    "columnNumber": 41,
+                                    "locations": {}
+                                  }
+                                }
+                              ],
+                              "location": {
+                                "lineNumber": 152,
+                                "columnNumber": 37,
+                                "locations": {}
+                              }
+                            }
+                          ],
+                          "location": {
+                            "lineNumber": 150,
+                            "columnNumber": 33,
+                            "locations": {}
+                          }
+                        }
+                      ],
+                      "location": {
+                        "lineNumber": 149,
+                        "columnNumber": 29,
+                        "locations": {}
+                      }
+                    }
+                  ],
+                  "location": {
+                    "lineNumber": 141,
+                    "columnNumber": 25,
+                    "locations": {}
+                  }
+                },
+                "locations": {
+                  "goals": {
+                    "lineNumber": 138,
+                    "columnNumber": 25,
+                    "locations": {
+                      "0": {
+                        "lineNumber": 139,
+                        "columnNumber": 29,
+                        "locations": {}
+                      }
+                    }
+                  },
+                  "": {
+                    "lineNumber": 136,
+                    "columnNumber": 21,
+                    "locations": {}
+                  },
+                  "configuration": {
+                    "lineNumber": 141,
+                    "columnNumber": 25,
+                    "locations": {}
+                  },
+                  "phase": {
+                    "lineNumber": 137,
+                    "columnNumber": 25,
+                    "locations": {}
+                  }
+                }
+              }
+            ],
+            "dependencies": [],
+            "locations": {
+              "executions": {
+                "lineNumber": 135,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "": {
+                "lineNumber": 131,
+                "columnNumber": 13,
+                "locations": {}
+              },
+              "groupId": {
+                "lineNumber": 132,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "version": {
+                "lineNumber": 134,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "artifactId": {
+                "lineNumber": 133,
+                "columnNumber": 17,
+                "locations": {}
+              }
+            }
+          },
+          {
+            "groupId": "org.graalvm.buildtools",
+            "artifactId": "native-maven-plugin",
+            "version": "0.9.28",
+            "extensions": "true",
+            "executions": [],
+            "dependencies": [],
+            "configuration": {
+              "prefix": "",
+              "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+              "name": "configuration",
+              "attributes": {},
+              "children": [
+                {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "mainClass",
+                  "value": "io.joshuasalcedo.parser.java.parser.SimpleAnalyzerCLI",
+                  "attributes": {},
+                  "children": [],
+                  "location": {
+                    "lineNumber": 171,
+                    "columnNumber": 21,
+                    "locations": {}
+                  }
+                },
+                {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "imageName",
+                  "value": "java-parser",
+                  "attributes": {},
+                  "children": [],
+                  "location": {
+                    "lineNumber": 172,
+                    "columnNumber": 21,
+                    "locations": {}
+                  }
+                },
+                {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "buildArgs",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "buildArg",
+                      "value": "--no-fallback",
+                      "attributes": {},
+                      "children": [],
+                      "location": {
+                        "lineNumber": 174,
+                        "columnNumber": 25,
+                        "locations": {}
+                      }
+                    },
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "buildArg",
+                      "value": "--initialize-at-build-time",
+                      "attributes": {},
+                      "children": [],
+                      "location": {
+                        "lineNumber": 175,
+                        "columnNumber": 25,
+                        "locations": {}
+                      }
+                    },
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "buildArg",
+                      "value": "-H:+ReportExceptionStackTraces",
+                      "attributes": {},
+                      "children": [],
+                      "location": {
+                        "lineNumber": 176,
+                        "columnNumber": 25,
+                        "locations": {}
+                      }
+                    },
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "buildArg",
+                      "value": "--enable-url-protocols\u003dfile",
+                      "attributes": {},
+                      "children": [],
+                      "location": {
+                        "lineNumber": 177,
+                        "columnNumber": 25,
+                        "locations": {}
+                      }
+                    },
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "buildArg",
+                      "value": "-H:+AddAllCharsets",
+                      "attributes": {},
+                      "children": [],
+                      "location": {
+                        "lineNumber": 178,
+                        "columnNumber": 25,
+                        "locations": {}
+                      }
+                    }
+                  ],
+                  "location": {
+                    "lineNumber": 173,
+                    "columnNumber": 21,
+                    "locations": {}
+                  }
+                }
+              ],
+              "location": {
+                "lineNumber": 170,
+                "columnNumber": 17,
+                "locations": {}
+              }
+            },
+            "locations": {
+              "": {
+                "lineNumber": 165,
+                "columnNumber": 13,
+                "locations": {}
+              },
+              "artifactId": {
+                "lineNumber": 167,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "version": {
+                "lineNumber": 168,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "groupId": {
+                "lineNumber": 166,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "configuration": {
+                "lineNumber": 170,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "extensions": {
+                "lineNumber": 169,
+                "columnNumber": 17,
+                "locations": {}
+              }
+            }
+          },
+          {
+            "groupId": "org.apache.maven.plugins",
+            "artifactId": "maven-surefire-plugin",
+            "version": "3.2.2",
+            "executions": [],
+            "dependencies": [],
+            "locations": {
+              "groupId": {
+                "lineNumber": 186,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "version": {
+                "lineNumber": 188,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "": {
+                "lineNumber": 185,
+                "columnNumber": 13,
+                "locations": {}
+              },
+              "artifactId": {
+                "lineNumber": 187,
+                "columnNumber": 17,
+                "locations": {}
+              }
+            }
+          }
+        ],
+        "locations": {
+          "": {
+            "lineNumber": 81,
+            "columnNumber": 5,
+            "locations": {}
+          },
+          "plugins": {
+            "lineNumber": 82,
+            "columnNumber": 9,
+            "locations": {}
+          }
+        }
+      },
+      "profiles": [
+        {
+          "id": "native",
+          "build": {
+            "resources": [],
+            "testResources": [],
+            "filters": [],
+            "plugins": [
+              {
+                "groupId": "org.graalvm.buildtools",
+                "artifactId": "native-maven-plugin",
+                "executions": [
+                  {
+                    "id": "build-native",
+                    "phase": "package",
+                    "priority": 0,
+                    "goals": [
+                      "compile-no-fork"
+                    ],
+                    "locations": {
+                      "goals": {
+                        "lineNumber": 205,
+                        "columnNumber": 33,
+                        "locations": {
+                          "0": {
+                            "lineNumber": 206,
+                            "columnNumber": 37,
+                            "locations": {}
+                          }
+                        }
+                      },
+                      "": {
+                        "lineNumber": 203,
+                        "columnNumber": 29,
+                        "locations": {}
+                      },
+                      "id": {
+                        "lineNumber": 204,
+                        "columnNumber": 33,
+                        "locations": {}
+                      },
+                      "phase": {
+                        "lineNumber": 208,
+                        "columnNumber": 33,
+                        "locations": {}
+                      }
+                    }
+                  }
+                ],
+                "dependencies": [],
+                "locations": {
+                  "groupId": {
+                    "lineNumber": 200,
+                    "columnNumber": 25,
+                    "locations": {}
+                  },
+                  "": {
+                    "lineNumber": 199,
+                    "columnNumber": 21,
+                    "locations": {}
+                  },
+                  "artifactId": {
+                    "lineNumber": 201,
+                    "columnNumber": 25,
+                    "locations": {}
+                  },
+                  "executions": {
+                    "lineNumber": 202,
+                    "columnNumber": 25,
+                    "locations": {}
+                  }
+                }
+              }
+            ],
+            "locations": {
+              "": {
+                "lineNumber": 197,
+                "columnNumber": 13,
+                "locations": {}
+              },
+              "plugins": {
+                "lineNumber": 198,
+                "columnNumber": 17,
+                "locations": {}
+              }
+            }
+          },
+          "source": "pom",
+          "modules": [],
+          "subprojects": [],
+          "properties": {},
+          "dependencies": [],
+          "repositories": [],
+          "pluginRepositories": [],
+          "locations": {
+            "build": {
+              "lineNumber": 197,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 195,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "id": {
+              "lineNumber": 196,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        }
+      ],
+      "modules": [],
+      "subprojects": [],
+      "properties": {},
+      "dependencies": [
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-core",
+          "version": "3.27.0",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 21,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 23,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 20,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 22,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-symbol-solver-core",
+          "version": "3.27.0",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 28,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 30,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 27,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 29,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-core-serialization",
+          "version": "3.27.0",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 35,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 37,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 34,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 36,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-core-generators",
+          "version": "3.27.0",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 42,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 44,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 41,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 43,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-generator-utils",
+          "version": "3.1.0-beta.1",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 48,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 50,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 47,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 49,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "info.picocli",
+          "artifactId": "picocli",
+          "version": "4.7.7",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 55,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 57,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 54,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 56,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.freemarker",
+          "artifactId": "freemarker",
+          "version": "2.3.34",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 62,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 64,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 61,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 63,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-symbol-solver-logic",
+          "version": "3.15.15",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 69,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 71,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 68,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 70,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-metamodel",
+          "version": "3.1.0-beta.1",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 75,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 77,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 74,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 76,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        }
+      ],
+      "repositories": [],
+      "pluginRepositories": [],
+      "locations": {
+        "artifactId": {
+          "lineNumber": 15,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 16,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 2,
+          "columnNumber": 1,
+          "locations": {}
+        },
+        "parent": {
+          "lineNumber": 7,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "groupId": {
+          "lineNumber": 14,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "build": {
+          "lineNumber": 81,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "dependencies": {
+          "lineNumber": 19,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "modelVersion": {
+          "lineNumber": 5,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "profiles": {
+          "lineNumber": 193,
+          "columnNumber": 5,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+      "modelEncoding": "UTF8",
+      "modelVersion": "4.0.0",
+      "parent": {
+        "groupId": "org.springframework.boot",
+        "artifactId": "spring-boot-starter-parent",
+        "version": "3.5.0",
+        "relativePath": "",
+        "locations": {
+          "": {
+            "lineNumber": 7,
+            "columnNumber": 5,
+            "locations": {}
+          },
+          "groupId": {
+            "lineNumber": 8,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "relativePath": {
+            "lineNumber": 11,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "version": {
+            "lineNumber": 10,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "artifactId": {
+            "lineNumber": 9,
+            "columnNumber": 9,
+            "locations": {}
+          }
+        }
+      },
+      "groupId": "io.joshuasalcedo.parser",
+      "artifactId": "springboot-starter-parser",
+      "version": "1.0-SNAPSHOT",
+      "packaging": "jar",
+      "name": "Spring Boot Starter - Java Parser",
+      "description": "Spring Boot starter for Java project analysis and parsing",
+      "root": false,
+      "preserveModelVersion": false,
+      "licenses": [],
+      "developers": [],
+      "contributors": [],
+      "mailingLists": [],
+      "build": {
+        "sources": [],
+        "extensions": [],
+        "resources": [],
+        "testResources": [],
+        "filters": [],
+        "plugins": [
+          {
+            "groupId": "org.apache.maven.plugins",
+            "artifactId": "maven-compiler-plugin",
+            "executions": [],
+            "dependencies": [],
+            "configuration": {
+              "prefix": "",
+              "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+              "name": "configuration",
+              "attributes": {},
+              "children": [
+                {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "annotationProcessorPaths",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "path",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "prefix": "",
+                          "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                          "name": "groupId",
+                          "value": "org.springframework.boot",
+                          "attributes": {},
+                          "children": [],
+                          "location": {
+                            "lineNumber": 136,
+                            "columnNumber": 29,
+                            "locations": {}
+                          }
+                        },
+                        {
+                          "prefix": "",
+                          "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                          "name": "artifactId",
+                          "value": "spring-boot-configuration-processor",
+                          "attributes": {},
+                          "children": [],
+                          "location": {
+                            "lineNumber": 137,
+                            "columnNumber": 29,
+                            "locations": {}
+                          }
+                        }
+                      ],
+                      "location": {
+                        "lineNumber": 135,
+                        "columnNumber": 25,
+                        "locations": {}
+                      }
+                    }
+                  ],
+                  "location": {
+                    "lineNumber": 134,
+                    "columnNumber": 21,
+                    "locations": {}
+                  }
+                }
+              ],
+              "location": {
+                "lineNumber": 133,
+                "columnNumber": 17,
+                "locations": {}
+              }
+            },
+            "locations": {
+              "groupId": {
+                "lineNumber": 131,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "": {
+                "lineNumber": 130,
+                "columnNumber": 13,
+                "locations": {}
+              },
+              "configuration": {
+                "lineNumber": 133,
+                "columnNumber": 17,
+                "locations": {}
+              },
+              "artifactId": {
+                "lineNumber": 132,
+                "columnNumber": 17,
+                "locations": {}
+              }
+            }
+          }
+        ],
+        "locations": {
+          "": {
+            "lineNumber": 128,
+            "columnNumber": 5,
+            "locations": {}
+          },
+          "plugins": {
+            "lineNumber": 129,
+            "columnNumber": 9,
+            "locations": {}
+          }
+        }
+      },
+      "profiles": [],
+      "modules": [],
+      "subprojects": [],
+      "properties": {
+        "java.version": "24",
+        "springdoc.version": "2.2.0"
+      },
+      "dependencies": [
+        {
+          "groupId": "io.joshuasalcedo.parser",
+          "artifactId": "parser-java",
+          "version": "1.0-SNAPSHOT",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 28,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 30,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 27,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 29,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-web",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 35,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 34,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 36,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-configuration-processor",
+          "type": "jar",
+          "exclusions": [],
+          "optional": "true",
+          "locations": {
+            "groupId": {
+              "lineNumber": 41,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "optional": {
+              "lineNumber": 43,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 40,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 42,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-autoconfigure",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 48,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 47,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 49,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.springdoc",
+          "artifactId": "springdoc-openapi-starter-webmvc-ui",
+          "version": "${springdoc.version}",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 54,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 56,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 53,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 55,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-core",
+          "version": "3.27.0",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 61,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 63,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 60,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 62,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-symbol-solver-core",
+          "version": "3.27.0",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 68,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 70,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 67,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 69,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-core-serialization",
+          "version": "3.27.0",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 75,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 77,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 74,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 76,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-core-generators",
+          "version": "3.27.0",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 82,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 84,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 81,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 83,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-generator-utils",
+          "version": "3.1.0-beta.1",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 88,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 90,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 87,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 89,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "info.picocli",
+          "artifactId": "picocli",
+          "version": "4.7.7",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 95,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 97,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 94,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 96,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.freemarker",
+          "artifactId": "freemarker",
+          "version": "2.3.34",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 102,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 104,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 101,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 103,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-symbol-solver-logic",
+          "version": "3.15.15",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 109,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 111,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 108,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 110,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "com.github.javaparser",
+          "artifactId": "javaparser-metamodel",
+          "version": "3.1.0-beta.1",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 115,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 117,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 114,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 116,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-test",
+          "type": "jar",
+          "scope": "test",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 122,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 121,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 123,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "scope": {
+              "lineNumber": 124,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        }
+      ],
+      "repositories": [],
+      "pluginRepositories": [],
+      "locations": {
+        "name": {
+          "lineNumber": 17,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "groupId": {
+          "lineNumber": 14,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "dependencies": {
+          "lineNumber": 25,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "description": {
+          "lineNumber": 18,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 2,
+          "columnNumber": 1,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 16,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "properties": {
+          "lineNumber": 20,
+          "columnNumber": 5,
+          "locations": {
+            "java.version": {
+              "lineNumber": 21,
+              "columnNumber": 25,
+              "locations": {}
+            },
+            "springdoc.version": {
+              "lineNumber": 22,
+              "columnNumber": 33,
+              "locations": {}
+            }
+          }
+        },
+        "parent": {
+          "lineNumber": 7,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "modelVersion": {
+          "lineNumber": 5,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "build": {
+          "lineNumber": 128,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 15,
+          "columnNumber": 5,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+      "modelEncoding": "UTF8",
+      "modelVersion": "4.0.0",
+      "parent": {
+        "groupId": "io.joshuasalcedo.parser",
+        "artifactId": "parser-parent",
+        "version": "1.0-SNAPSHOT",
+        "locations": {
+          "groupId": {
+            "lineNumber": 8,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "version": {
+            "lineNumber": 10,
+            "columnNumber": 9,
+            "locations": {}
+          },
+          "": {
+            "lineNumber": 7,
+            "columnNumber": 5,
+            "locations": {}
+          },
+          "artifactId": {
+            "lineNumber": 9,
+            "columnNumber": 9,
+            "locations": {}
+          }
+        }
+      },
+      "groupId": "io.joshuasalcedo.parser",
+      "artifactId": "parser-maven",
+      "version": "1.0-SNAPSHOT",
+      "packaging": "jar",
+      "root": false,
+      "preserveModelVersion": false,
+      "licenses": [],
+      "developers": [],
+      "contributors": [],
+      "mailingLists": [],
+      "profiles": [],
+      "modules": [],
+      "subprojects": [],
+      "properties": {},
+      "dependencies": [
+        {
+          "groupId": "org.apache.maven",
+          "artifactId": "maven-model",
+          "version": "4.0.0-rc-3",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 20,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 22,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 19,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 21,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven.resolver",
+          "artifactId": "maven-resolver-api",
+          "version": "2.0.9",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 26,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 28,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 25,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 27,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.codehaus.plexus",
+          "artifactId": "plexus-container-default",
+          "version": "2.1.1",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 34,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 36,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 33,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 35,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven",
+          "artifactId": "maven-core",
+          "version": "3.9.6",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 41,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 43,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 40,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 42,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven",
+          "artifactId": "maven-compat",
+          "version": "3.9.6",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 48,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 50,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 47,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 49,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven",
+          "artifactId": "maven-settings-builder",
+          "version": "3.9.6",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 55,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 57,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 54,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 56,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven",
+          "artifactId": "maven-repository-metadata",
+          "version": "3.9.6",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 62,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 64,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 61,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 63,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven.resolver",
+          "artifactId": "maven-resolver-api",
+          "version": "1.9.18",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 69,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 71,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 68,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 70,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven.resolver",
+          "artifactId": "maven-resolver-impl",
+          "version": "1.9.18",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 75,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 77,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 74,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 76,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven.resolver",
+          "artifactId": "maven-resolver-connector-basic",
+          "version": "1.9.18",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 81,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 83,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 80,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 82,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven.resolver",
+          "artifactId": "maven-resolver-transport-file",
+          "version": "1.9.18",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 87,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 89,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 86,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 88,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven.resolver",
+          "artifactId": "maven-resolver-transport-http",
+          "version": "1.9.18",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 93,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 95,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 92,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 94,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven",
+          "artifactId": "maven-core",
+          "version": "4.0.0-rc-3",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 100,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 102,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 99,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 101,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven",
+          "artifactId": "maven-artifact",
+          "version": "4.0.0-rc-3",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 106,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 108,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 105,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 107,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven.shared",
+          "artifactId": "maven-dependency-tree",
+          "version": "3.3.0",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 113,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 115,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 112,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 114,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        },
+        {
+          "groupId": "org.apache.maven.shared",
+          "artifactId": "maven-invoker",
+          "version": "3.3.0",
+          "type": "jar",
+          "exclusions": [],
+          "locations": {
+            "groupId": {
+              "lineNumber": 119,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "version": {
+              "lineNumber": 121,
+              "columnNumber": 13,
+              "locations": {}
+            },
+            "": {
+              "lineNumber": 118,
+              "columnNumber": 9,
+              "locations": {}
+            },
+            "artifactId": {
+              "lineNumber": 120,
+              "columnNumber": 13,
+              "locations": {}
+            }
+          }
+        }
+      ],
+      "repositories": [],
+      "pluginRepositories": [],
+      "locations": {
+        "dependencies": {
+          "lineNumber": 17,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 14,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "modelVersion": {
+          "lineNumber": 5,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 2,
+          "columnNumber": 1,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 15,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "parent": {
+          "lineNumber": 7,
+          "columnNumber": 5,
+          "locations": {}
+        },
+        "groupId": {
+          "lineNumber": 13,
+          "columnNumber": 5,
+          "locations": {}
+        }
+      }
+    }
+  ],
+  "moduleDependencies": {
+    "io.joshuasalcedo.parser:springboot-starter-parser:jar:1.0-SNAPSHOT": [
+      {
+        "groupId": "io.joshuasalcedo.parser",
+        "artifactId": "parser-java",
+        "version": "1.0-SNAPSHOT",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "name": "parser-java",
+        "isOutdated": false
+      },
+      {
+        "groupId": "org.springframework.boot",
+        "artifactId": "spring-boot-starter-web",
+        "version": "managed",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.springframework.boot",
+        "name": "spring-boot-starter-web",
+        "latestVersion": "3.5.3",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.springframework.boot",
+        "artifactId": "spring-boot-configuration-processor",
+        "version": "managed",
+        "scope": "compile",
+        "type": "jar",
+        "optional": true,
+        "description": "org.springframework.boot",
+        "name": "spring-boot-configuration-processor",
+        "latestVersion": "3.5.3",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.springframework.boot",
+        "artifactId": "spring-boot-autoconfigure",
+        "version": "managed",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.springframework.boot",
+        "name": "spring-boot-autoconfigure",
+        "latestVersion": "3.5.3",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.springdoc",
+        "artifactId": "springdoc-openapi-starter-webmvc-ui",
+        "version": "${springdoc.version}",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.springdoc",
+        "name": "springdoc-openapi-starter-webmvc-ui",
+        "latestVersion": "2.8.6",
+        "isOutdated": true
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-core",
+        "version": "3.27.0",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-core",
+        "latestVersion": "3.27.0",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-symbol-solver-core",
+        "version": "3.27.0",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-symbol-solver-core",
+        "latestVersion": "3.27.0",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-core-serialization",
+        "version": "3.27.0",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-core-serialization",
+        "latestVersion": "3.27.0",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-core-generators",
+        "version": "3.27.0",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-core-generators",
+        "latestVersion": "3.27.0",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-generator-utils",
+        "version": "3.1.0-beta.1",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-generator-utils",
+        "latestVersion": "3.1.0-beta.1",
+        "isOutdated": false
+      },
+      {
+        "groupId": "info.picocli",
+        "artifactId": "picocli",
+        "version": "4.7.7",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "info.picocli",
+        "name": "picocli",
+        "latestVersion": "4.7.7",
+        "isOutdated": false
+      },
+      {
+        "groupId": "org.freemarker",
+        "artifactId": "freemarker",
+        "version": "2.3.34",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.freemarker",
+        "name": "freemarker",
+        "latestVersion": "2.3.34",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-symbol-solver-logic",
+        "version": "3.15.15",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-symbol-solver-logic",
+        "latestVersion": "3.15.15",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-metamodel",
+        "version": "3.1.0-beta.1",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-metamodel",
+        "latestVersion": "3.1.0-beta.1",
+        "isOutdated": false
+      },
+      {
+        "groupId": "org.springframework.boot",
+        "artifactId": "spring-boot-starter-test",
+        "version": "managed",
+        "scope": "test",
+        "type": "jar",
+        "optional": false,
+        "description": "org.springframework.boot",
+        "name": "spring-boot-starter-test",
+        "latestVersion": "3.5.3",
+        "isOutdated": true
+      }
+    ],
+    "io.joshuasalcedo.parser:parser-java:jar:1.0-SNAPSHOT": [
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-core",
+        "version": "3.27.0",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-core",
+        "latestVersion": "3.27.0",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-symbol-solver-core",
+        "version": "3.27.0",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-symbol-solver-core",
+        "latestVersion": "3.27.0",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-core-serialization",
+        "version": "3.27.0",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-core-serialization",
+        "latestVersion": "3.27.0",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-core-generators",
+        "version": "3.27.0",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-core-generators",
+        "latestVersion": "3.27.0",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-generator-utils",
+        "version": "3.1.0-beta.1",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-generator-utils",
+        "latestVersion": "3.1.0-beta.1",
+        "isOutdated": false
+      },
+      {
+        "groupId": "info.picocli",
+        "artifactId": "picocli",
+        "version": "4.7.7",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "info.picocli",
+        "name": "picocli",
+        "latestVersion": "4.7.7",
+        "isOutdated": false
+      },
+      {
+        "groupId": "org.freemarker",
+        "artifactId": "freemarker",
+        "version": "2.3.34",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.freemarker",
+        "name": "freemarker",
+        "latestVersion": "2.3.34",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-symbol-solver-logic",
+        "version": "3.15.15",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-symbol-solver-logic",
+        "latestVersion": "3.15.15",
+        "isOutdated": false
+      },
+      {
+        "groupId": "com.github.javaparser",
+        "artifactId": "javaparser-metamodel",
+        "version": "3.1.0-beta.1",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.github.javaparser",
+        "name": "javaparser-metamodel",
+        "latestVersion": "3.1.0-beta.1",
+        "isOutdated": false
+      }
+    ],
+    "io.joshuasalcedo.parser:parser-parent:pom:1.0-SNAPSHOT": [
+      {
+        "groupId": "com.google.code.gson",
+        "artifactId": "gson",
+        "version": "2.13.1",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "com.google.code.gson",
+        "name": "gson",
+        "latestVersion": "2.13.1",
+        "isOutdated": false
+      },
+      {
+        "groupId": "org.freemarker",
+        "artifactId": "freemarker",
+        "version": "2.3.34",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.freemarker",
+        "name": "freemarker",
+        "latestVersion": "2.3.34",
+        "isOutdated": false
+      }
+    ],
+    "io.joshuasalcedo.parser:parser-maven:jar:1.0-SNAPSHOT": [
+      {
+        "groupId": "org.apache.maven",
+        "artifactId": "maven-model",
+        "version": "4.0.0-rc-3",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven",
+        "name": "maven-model",
+        "latestVersion": "4.0.0-rc-3",
+        "isOutdated": false
+      },
+      {
+        "groupId": "org.apache.maven.resolver",
+        "artifactId": "maven-resolver-api",
+        "version": "2.0.9",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven.resolver",
+        "name": "maven-resolver-api",
+        "latestVersion": "2.0.9",
+        "isOutdated": false
+      },
+      {
+        "groupId": "org.codehaus.plexus",
+        "artifactId": "plexus-container-default",
+        "version": "2.1.1",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.codehaus.plexus",
+        "name": "plexus-container-default",
+        "latestVersion": "2.1.1",
+        "isOutdated": false
+      },
+      {
+        "groupId": "org.apache.maven",
+        "artifactId": "maven-core",
+        "version": "3.9.6",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven",
+        "name": "maven-core",
+        "latestVersion": "4.0.0-rc-3",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.apache.maven",
+        "artifactId": "maven-compat",
+        "version": "3.9.6",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven",
+        "name": "maven-compat",
+        "latestVersion": "4.0.0-rc-3",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.apache.maven",
+        "artifactId": "maven-settings-builder",
+        "version": "3.9.6",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven",
+        "name": "maven-settings-builder",
+        "latestVersion": "4.0.0-rc-3",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.apache.maven",
+        "artifactId": "maven-repository-metadata",
+        "version": "3.9.6",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven",
+        "name": "maven-repository-metadata",
+        "latestVersion": "4.0.0-rc-3",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.apache.maven.resolver",
+        "artifactId": "maven-resolver-api",
+        "version": "1.9.18",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven.resolver",
+        "name": "maven-resolver-api",
+        "latestVersion": "2.0.9",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.apache.maven.resolver",
+        "artifactId": "maven-resolver-impl",
+        "version": "1.9.18",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven.resolver",
+        "name": "maven-resolver-impl",
+        "latestVersion": "2.0.9",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.apache.maven.resolver",
+        "artifactId": "maven-resolver-connector-basic",
+        "version": "1.9.18",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven.resolver",
+        "name": "maven-resolver-connector-basic",
+        "latestVersion": "2.0.9",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.apache.maven.resolver",
+        "artifactId": "maven-resolver-transport-file",
+        "version": "1.9.18",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven.resolver",
+        "name": "maven-resolver-transport-file",
+        "latestVersion": "2.0.9",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.apache.maven.resolver",
+        "artifactId": "maven-resolver-transport-http",
+        "version": "1.9.18",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven.resolver",
+        "name": "maven-resolver-transport-http",
+        "latestVersion": "2.0.0-alpha-2",
+        "isOutdated": true
+      },
+      {
+        "groupId": "org.apache.maven",
+        "artifactId": "maven-core",
+        "version": "4.0.0-rc-3",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven",
+        "name": "maven-core",
+        "latestVersion": "4.0.0-rc-3",
+        "isOutdated": false
+      },
+      {
+        "groupId": "org.apache.maven",
+        "artifactId": "maven-artifact",
+        "version": "4.0.0-rc-3",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven",
+        "name": "maven-artifact",
+        "latestVersion": "4.0.0-rc-3",
+        "isOutdated": false
+      },
+      {
+        "groupId": "org.apache.maven.shared",
+        "artifactId": "maven-dependency-tree",
+        "version": "3.3.0",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven.shared",
+        "name": "maven-dependency-tree",
+        "latestVersion": "3.3.0",
+        "isOutdated": false
+      },
+      {
+        "groupId": "org.apache.maven.shared",
+        "artifactId": "maven-invoker",
+        "version": "3.3.0",
+        "scope": "compile",
+        "type": "jar",
+        "optional": false,
+        "description": "org.apache.maven.shared",
+        "name": "maven-invoker",
+        "latestVersion": "3.3.0",
+        "isOutdated": false
+      }
+    ]
+  }
+}

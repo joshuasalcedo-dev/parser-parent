@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Parser Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- D3.js for graph visualization -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/parser-dashboard.css}">
+
+    <style>
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .dependency-graph {
+            background: white;
+            border-radius: 15px;
+            border: 1px solid #e0e0e0;
+            min-height: 400px;
+        }
+
+        .health-badge {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #2c3e50 0%, #3498db 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            border-radius: 10px;
+            margin: 5px 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .main-content {
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .circular-dependency {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .node {
+            fill: #4facfe;
+            stroke: #fff;
+            stroke-width: 2px;
+            cursor: pointer;
+        }
+
+        .node:hover {
+            fill: #00f2fe;
+        }
+
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+            stroke-width: 2px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-2 sidebar p-3">
+            <h4 class="mb-4"><i class="fas fa-code"></i> Java Parser</h4>
+
+            <nav class="nav flex-column">
+                <a class="nav-link active" href="#dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a class="nav-link" th:href="@{${config.viewPath} + '/dependencies'}">
+                    <i class="fas fa-project-diagram"></i> Dependencies
+                </a>
+                <a class="nav-link" th:href="@{${config.viewPath} + '/metrics'}">
+                    <i class="fas fa-chart-bar"></i> Metrics
+                </a>
+                <a class="nav-link" href="#health">
+                    <i class="fas fa-heart"></i> Health
+                </a>
+            </nav>
+
+            <div class="mt-4">
+                <small class="text-light">Project Path:</small>
+                <div class="badge bg-light text-dark mt-1" th:text="${projectPath}">Current Directory</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-10 main-content">
+            <!-- Error Display -->
+            <div th:if="${error}" class="alert alert-danger" role="alert">
+                <i class="fas fa-exclamation-triangle"></i> <span th:text="${error}">Error message</span>
+            </div>
+
+            <!-- No Analysis Display -->
+            <div th:if="${noAnalysis}" class="alert alert-warning" role="alert">
+                <i class="fas fa-info-circle"></i> No analysis data available. Please check your configuration.
+            </div>
+
+            <!-- Project Header -->
+            <div th:unless="${error || noAnalysis}" class="project-header">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1><i class="fas fa-folder-open"></i> <span th:text="${project?.name ?: 'Java Project'}">Project Name</span></h1>
+                        <p class="mb-0" th:text="'Analysis completed in ' + ${analysisTime} + 'ms'">Analysis time</p>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <div th:if="${hasHealth}">
+                                <span class="health-badge bg-success" th:classappend="${health.healthScore > 80} ? 'bg-success' : (${health.healthScore > 60} ? 'bg-warning' : 'bg-danger')">
+                                    Health: <span th:text="${#numbers.formatDecimal(health.healthScore, 1, 1)}">85.5</span>%
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div th:unless="${error || noAnalysis}" class="row">
+                <div class="col-md-3">
+                    <div class="metric-card text-center">
+                        <h3><i class="fas fa-file-code"></i></h3>
+                        <h2 th:text="${statistics?.totalClasses() ?: 0}">0</h2>
+                        <p>Classes</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card text-center">
+                        <h3><i class="fas fa-cogs"></i></h3>
+                        <h2 th:text="${statistics?.totalMethods() ?: 0}">0</h2>
+                        <p>Methods</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card text-center">
+                        <h3><i class="fas fa-code-branch"></i></h3>
+                        <h2 th:text="${statistics?.totalInterfaces() ?: 0}">0</h2>
+                        <p>Interfaces</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card text-center">
+                        <h3><i class="fas fa-lines-leaning"></i></h3>
+                        <h2 th:text="${statistics?.totalLinesOfCode() ?: 0}">0</h2>
+                        <p>Lines of Code</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts and Graphs Row -->
+            <div th:unless="${error || noAnalysis}" class="row">
+                <!-- Complexity Chart -->
+                <div th:if="${hasMetrics}" class="col-md-6">
+                    <div class="chart-container">
+                        <h5><i class="fas fa-chart-line"></i> Complexity Distribution</h5>
+                        <canvas id="complexityChart" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Quality Chart -->
+                <div th:if="${hasMetrics}" class="col-md-6">
+                    <div class="chart-container">
+                        <h5><i class="fas fa-chart-pie"></i> Quality Metrics</h5>
+                        <canvas id="qualityChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dependency Graph -->
+            <div th:if="${hasDependencies && !(error || noAnalysis)}" class="row">
+                <div class="col-12">
+                    <div class="chart-container">
+                        <h5><i class="fas fa-project-diagram"></i> Dependency Graph</h5>
+                        <div id="dependencyGraph" class="dependency-graph"></div>
+                        <div class="mt-3">
+                            <a th:href="@{${config.viewPath} + '/dependencies'}" class="btn btn-primary">
+                                <i class="fas fa-expand"></i> View Full Dependency Graph
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circular Dependencies Warning -->
+            <div th:if="${circularDependencies != null && !#lists.isEmpty(circularDependencies)}" class="row">
+                <div class="col-12">
+                    <div class="alert alert-warning">
+                        <h5><i class="fas fa-exclamation-triangle"></i> Circular Dependencies Detected</h5>
+                        <div th:each="cycle : ${circularDependencies}" class="circular-dependency">
+                            <strong>Cycle:</strong> <span th:text="${#strings.listJoin(cycle, ' → ')}">Class A → Class B → Class A</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Recommendations -->
+            <div th:if="${hasHealth && health.recommendations != null}" class="row">
+                <div class="col-12">
+                    <div class="chart-container">
+                        <h5><i class="fas fa-lightbulb"></i> Recommendations</h5>
+                        <ul class="list-group list-group-flush">
+                            <li th:each="recommendation : ${health.recommendations}"
+                                class="list-group-item" th:text="${recommendation}">Recommendation text</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Risks -->
+            <div th:if="${hasHealth && health.risks != null && !#lists.isEmpty(health.risks)}" class="row">
+                <div class="col-12">
+                    <div class="chart-container">
+                        <h5><i class="fas fa-shield-alt"></i> Project Risks</h5>
+                        <div th:each="risk : ${health.risks}" class="alert"
+                             th:classappend="${risk.level.name() == 'HIGH'} ? 'alert-danger' : (${risk.level.name() == 'MEDIUM'} ? 'alert-warning' : 'alert-info')">
+                            <strong th:text="${risk.category}">Risk Category</strong>:
+                            <span th:text="${risk.description}">Risk description</span>
+                            <br><small th:text="${risk.recommendation}">Recommendation</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script th:src="@{/js/parser-dashboard.js}"></script>
+
+<script th:inline="javascript">
+    // Initialize charts if metrics are available
+
+    // Complexity Chart
+    const complexityData = /*[[${complexityChart}]]*/ {};
+    if (complexityData && complexityData.labels) {
+        const ctx1 = document.getElementById('complexityChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: complexityData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    // Quality Chart
+    const qualityData = /*[[${qualityChart}]]*/ {};
+    if (qualityData && qualityData.labels) {
+        const ctx2 = document.getElementById('qualityChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'radar',
+            data: qualityData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+
+
+    // Dependency Graph with D3.js
+    const graphData = /*[[${dependencyGraph}]]*/ {};
+    if (graphData && graphData.nodes) {
+        createDependencyGraph(graphData);
+    }
+
+    function createDependencyGraph(data) {
+        const width = 800;
+        const height = 400;
+
+        const svg = d3.select("#dependencyGraph")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        const simulation = d3.forceSimulation(data.nodes)
+            .force("link", d3.forceLink(data.links).id(d => d.id).distance(100))
+            .force("charge", d3.forceManyBody().strength(-300))
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        const link = svg.append("g")
+            .selectAll("line")
+            .data(data.links)
+            .enter().append("line")
+            .attr("class", "link");
+
+        const node = svg.append("g")
+            .selectAll("circle")
+            .data(data.nodes)
+            .enter().append("circle")
+            .attr("class", "node")
+            .attr("r", d => Math.min(20, 5 + d.methods * 2))
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+
+        node.append("title")
+            .text(d => `${d.name}\nMethods: ${d.methods}\nFields: ${d.fields}`);
+
+        simulation
+            .nodes(data.nodes)
+            .on("tick", ticked);
+
+        simulation.force("link")
+            .links(data.links);
+
+        function ticked() {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+        }
+
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+    }
+</script>
+</body>
+</html>

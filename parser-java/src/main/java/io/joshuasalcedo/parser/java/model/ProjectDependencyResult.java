@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Result of dependency analysis including coupling metrics and circular dependencies
  */
-public record DependencyResult(
+public record ProjectDependencyResult(
     Map<String, Set<String>> classDependencies,
     Map<String, Set<String>> methodCalls,
     Map<String, Set<String>> fieldReferences,

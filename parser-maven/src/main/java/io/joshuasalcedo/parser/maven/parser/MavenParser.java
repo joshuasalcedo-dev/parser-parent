@@ -80,13 +80,13 @@ public class MavenParser {
         }
 
         if (model.getModules().isEmpty()) {
-            logger.info("MODULE DOES NOT HAVE SUBMODULES. RETURNING AN EMPTY ARRAY");
+            logger.debug("MODULE DOES NOT HAVE SUBMODULES. RETURNING AN EMPTY ARRAY");
             logger.warn("USING DEPRECIATED METHOD model.getModules(). Should use model.getProjects()");
             return subModules;
         }
 
         if (model.getPomFile() == null) {
-            logger.error("Parent model's POM file is null. Cannot determine base directory for submodules");
+            logger.debug("Parent model's POM file is null. Cannot determine base directory for submodules");
             parentDir = Path.of(System.getProperty("user.dir"));
         }else {
             parentDir = model.getPomFile();

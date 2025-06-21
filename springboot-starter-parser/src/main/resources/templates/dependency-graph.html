@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependency Graph - Java Parser</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- D3.js for graph visualization -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/parser-dashboard.css}">
+    
+    <style>
+        .main-content {
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .graph-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-height: 600px;
+        }
+        
+        .controls {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .node {
+            cursor: pointer;
+            stroke-width: 2px;
+        }
+        
+        .node.class { fill: #4facfe; stroke: #fff; }
+        .node.interface { fill: #f093fb; stroke: #fff; }
+        .node.enum { fill: #ffecd2; stroke: #fff; }
+        .node.selected { stroke: #ff6b6b; stroke-width: 4px; }
+        
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+            stroke-width: 1.5px;
+        }
+        
+        .link.highlighted {
+            stroke: #ff6b6b;
+            stroke-opacity: 1;
+            stroke-width: 3px;
+        }
+        
+        .tooltip {
+            position: absolute;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 5px;
+            font-size: 12px;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .legend {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .circular-dependency-alert {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="main-content">
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1><i class="fas fa-project-diagram"></i> Dependency Graph</h1>
+                <a th:href="@{${config?.viewPath ?: '/api/parser/view'}}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </a>
+            </div>
+            
+            <!-- Error Display -->
+            <div th:if="${error}" class="alert alert-danger" role="alert">
+                <i class="fas fa-exclamation-triangle"></i> <span th:text="${error}">Error message</span>
+            </div>
+            
+            <!-- Controls -->
+            <div th:unless="${error}" class="controls">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h5>Graph Controls</h5>
+                        <button id="resetZoom" class="btn btn-outline-primary btn-sm me-2">
+                            <i class="fas fa-search-minus"></i> Reset Zoom
+                        </button>
+                        <button id="centerGraph" class="btn btn-outline-primary btn-sm me-2">
+                            <i class="fas fa-crosshairs"></i> Center
+                        </button>
+                        <button id="togglePhysics" class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-pause"></i> Pause Physics
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="stats-card">
+                                    <h6>Total Classes</h6>
+                                    <h4 th:text="${project?.classes?.size() ?: 0}">0</h4>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stats-card">
+                                    <h6>Dependencies</h6>
+                                    <h4 th:text="${dependencies?.classDependencies?.size() ?: 0}">0</h4>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stats-card">
+                                    <h6>Max Coupling</h6>
+                                    <h4 th:text="${dependencies?.maxEfferentCoupling ?: 0}">0</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Circular Dependencies Warning -->
+            <div th:if="${circularDependencies != null and not #lists.isEmpty(circularDependencies)}" class="alert alert-warning">
+                <h5><i class="fas fa-exclamation-triangle"></i> Circular Dependencies Detected</h5>
+                <p>The following circular dependencies were found in your project:</p>
+                <div th:each="cycle : ${circularDependencies}" class="circular-dependency-alert">
+                    <strong>Cycle:</strong> <span th:text="${#strings.listJoin(cycle, ' → ')}">Class A → Class B → Class A</span>
+                </div>
+            </div>
+            
+            <!-- Graph Container -->
+            <div th:unless="${error}" class="graph-container">
+                <div id="dependencyGraph" style="width: 100%; height: 100%; position: relative;"></div>
+                
+                <!-- Legend -->
+                <div class="legend">
+                    <h6>Legend</h6>
+                    <div><span style="color: #4facfe;">●</span> Classes</div>
+                    <div><span style="color: #f093fb;">●</span> Interfaces</div>
+                    <div><span style="color: #ffecd2;">●</span> Enums</div>
+                    <hr>
+                    <small>Click nodes to highlight connections<br>Drag to move<br>Scroll to zoom</small>
+                </div>
+            </div>
+            
+            <!-- Node Details Panel -->
+            <div id="nodeDetails" class="mt-3" style="display: none;">
+                <div class="controls">
+                    <h5>Node Details</h5>
+                    <div id="nodeInfo"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script th:inline="javascript">
+        // Get graph data from server
+        const graphData = /*[[${networkGraph}]]*/ {};
+        
+        if (graphData && graphData.nodes && graphData.nodes.length > 0) {
+            createInteractiveDependencyGraph(graphData);
+        } else {
+            document.getElementById('dependencyGraph').innerHTML = 
+                '<div class="text-center p-5"><h4>No dependency data available</h4><p>Run dependency analysis to view the graph.</p></div>';
+        }
+        
+        function createInteractiveDependencyGraph(data) {
+            const container = document.getElementById('dependencyGraph');
+            const width = container.clientWidth;
+            const height = container.clientHeight - 50;
+            
+            // Create SVG
+            const svg = d3.select("#dependencyGraph")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .call(d3.zoom()
+                    .scaleExtent([0.1, 4])
+                    .on("zoom", function(event) {
+                        g.attr("transform", event.transform);
+                    }))
+                .on("dblclick.zoom", null);
+                
+            const g = svg.append("g");
+            
+            // Create tooltip
+            const tooltip = d3.select("body").append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+            
+            // Create force simulation
+            const simulation = d3.forceSimulation(data.nodes)
+                .force("link", d3.forceLink(data.links).id(d => d.id).distance(150))
+                .force("charge", d3.forceManyBody().strength(-400))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collision", d3.forceCollide().radius(d => getNodeRadius(d) + 5));
+            
+            // Create links
+            const link = g.append("g")
+                .selectAll("line")
+                .data(data.links)
+                .enter().append("line")
+                .attr("class", "link");
+            
+            // Create nodes
+            const node = g.append("g")
+                .selectAll("circle")
+                .data(data.nodes)
+                .enter().append("circle")
+                .attr("class", d => `node ${getNodeType(d)}`)
+                .attr("r", getNodeRadius)
+                .on("click", handleNodeClick)
+                .on("mouseover", function(event, d) {
+                    showTooltip(event, d);
+                })
+                .on("mouseout", function() {
+                    hideTooltip();
+                })
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended));
+            
+            // Create labels
+            const labels = g.append("g")
+                .selectAll("text")
+                .data(data.nodes)
+                .enter().append("text")
+                .text(d => d.name)
+                .style("font-size", "12px")
+                .style("text-anchor", "middle")
+                .style("pointer-events", "none")
+                .style("fill", "#333");
+            
+            // Update positions on tick
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+                
+                node
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+                    
+                labels
+                    .attr("x", d => d.x)
+                    .attr("y", d => d.y + getNodeRadius(d) + 15);
+            });
+            
+            // Control functions
+            let physicsRunning = true;
+            
+            document.getElementById('resetZoom').onclick = function() {
+                svg.transition().duration(750).call(
+                    d3.zoom().transform,
+                    d3.zoomIdentity
+                );
+            };
+            
+            document.getElementById('centerGraph').onclick = function() {
+                const bounds = g.node().getBBox();
+                const fullWidth = width;
+                const fullHeight = height;
+                const centerX = bounds.x + bounds.width / 2;
+                const centerY = bounds.y + bounds.height / 2;
+                const scale = 0.8 / Math.max(bounds.width / fullWidth, bounds.height / fullHeight);
+                const translate = [fullWidth / 2 - scale * centerX, fullHeight / 2 - scale * centerY];
+                
+                svg.transition().duration(750).call(
+                    d3.zoom().transform,
+                    d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
+                );
+            };
+            
+            document.getElementById('togglePhysics').onclick = function() {
+                if (physicsRunning) {
+                    simulation.stop();
+                    this.innerHTML = '<i class="fas fa-play"></i> Resume Physics';
+                    physicsRunning = false;
+                } else {
+                    simulation.restart();
+                    this.innerHTML = '<i class="fas fa-pause"></i> Pause Physics';
+                    physicsRunning = true;
+                }
+            };
+            
+            function getNodeType(d) {
+                if (d.id.includes('Interface')) return 'interface';
+                if (d.id.includes('Enum')) return 'enum';
+                return 'class';
+            }
+            
+            function getNodeRadius(d) {
+                return Math.min(25, 8 + (d.methods || 0) * 1.5);
+            }
+            
+            function handleNodeClick(event, d) {
+                // Clear previous selections
+                node.classed("selected", false);
+                link.classed("highlighted", false);
+                
+                // Select current node
+                d3.select(this).classed("selected", true);
+                
+                // Highlight connected links
+                link.classed("highlighted", l => l.source === d || l.target === d);
+                
+                // Show node details
+                showNodeDetails(d);
+            }
+            
+            function showTooltip(event, d) {
+                tooltip.transition().duration(200).style("opacity", .9);
+                tooltip.html(`
+                    <strong>${d.name}</strong><br/>
+                    Package: ${d.package || 'Default'}<br/>
+                    Methods: ${d.methods || 0}<br/>
+                    Fields: ${d.fields || 0}
+                `)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 28) + "px");
+            }
+            
+            function hideTooltip() {
+                tooltip.transition().duration(500).style("opacity", 0);
+            }
+            
+            function showNodeDetails(d) {
+                const details = document.getElementById('nodeDetails');
+                const info = document.getElementById('nodeInfo');
+                
+                // Find connected nodes
+                const connections = data.links.filter(l => l.source === d || l.target === d);
+                const dependencies = connections.filter(l => l.source === d).map(l => l.target.name);
+                const dependents = connections.filter(l => l.target === d).map(l => l.source.name);
+                
+                info.innerHTML = `
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><strong>${d.name}</strong></h6>
+                            <p><strong>Package:</strong> ${d.package || 'Default'}</p>
+                            <p><strong>Type:</strong> ${getNodeType(d)}</p>
+                            <p><strong>Methods:</strong> ${d.methods || 0}</p>
+                            <p><strong>Fields:</strong> ${d.fields || 0}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Dependencies (${dependencies.length})</h6>
+                            <div class="mb-3" style="max-height: 100px; overflow-y: auto;">
+                                ${dependencies.length > 0 ? dependencies.map(dep => `<span class="badge bg-primary me-1">${dep}</span>`).join('') : '<em>None</em>'}
+                            </div>
+                            <h6>Dependents (${dependents.length})</h6>
+                            <div style="max-height: 100px; overflow-y: auto;">
+                                ${dependents.length > 0 ? dependents.map(dep => `<span class="badge bg-secondary me-1">${dep}</span>`).join('') : '<em>None</em>'}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                details.style.display = 'block';
+            }
+            
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+            
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+            
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            }
+        }
+    </script>
+</body>
+</html>

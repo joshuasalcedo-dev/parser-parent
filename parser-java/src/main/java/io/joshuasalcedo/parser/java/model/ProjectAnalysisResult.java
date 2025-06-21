@@ -8,20 +8,20 @@ import java.util.*;
 public class ProjectAnalysisResult {
     private final ProjectRepresentation project;
     private final ProjectStatistics statistics;
-    private final DependencyResult dependencyResult;
+    private final ProjectDependencyResult projectDependencyResult;
     private final MetricsResult metricsResult;
     private final GraphResult graphResult;
     private final long analysisTimeMs;
     
     public ProjectAnalysisResult(ProjectRepresentation project,
                                  ProjectStatistics statistics,
-                                 DependencyResult dependencyResult,
+                                 ProjectDependencyResult projectDependencyResult,
                                  MetricsResult metricsResult,
                                  GraphResult graphResult,
                                  long analysisTimeMs) {
         this.project = project;
         this.statistics = statistics;
-        this.dependencyResult = dependencyResult;
+        this.projectDependencyResult = projectDependencyResult;
         this.metricsResult = metricsResult;
         this.graphResult = graphResult;
         this.analysisTimeMs = analysisTimeMs;
@@ -30,14 +30,14 @@ public class ProjectAnalysisResult {
     // Getters
     public ProjectRepresentation getProject() { return project; }
     public ProjectStatistics getStatistics() { return statistics; }
-    public DependencyResult getDependencyResult() { return dependencyResult; }
+    public ProjectDependencyResult getDependencyResult() { return projectDependencyResult; }
     public MetricsResult getMetricsResult() { return metricsResult; }
     public GraphResult getGraphResult() { return graphResult; }
     public long getAnalysisTimeMs() { return analysisTimeMs; }
     
     // Convenience methods
     public boolean hasCircularDependencies() {
-        return dependencyResult != null && dependencyResult.hasCircularDependencies();
+        return projectDependencyResult != null && projectDependencyResult.hasCircularDependencies();
     }
     
     public boolean hasCodeDuplication() {

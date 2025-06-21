@@ -1,0 +1,550 @@
+{
+  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+  "modelEncoding": "UTF8",
+  "modelVersion": "4.0.0",
+  "parent": {
+    "groupId": "io.joshuasalcedo.parser",
+    "artifactId": "parser-parent",
+    "version": "1.0-SNAPSHOT",
+    "locations": {
+      "groupId": {
+        "lineNumber": 8,
+        "columnNumber": 9,
+        "locations": {}
+      },
+      "version": {
+        "lineNumber": 10,
+        "columnNumber": 9,
+        "locations": {}
+      },
+      "": {
+        "lineNumber": 7,
+        "columnNumber": 5,
+        "locations": {}
+      },
+      "artifactId": {
+        "lineNumber": 9,
+        "columnNumber": 9,
+        "locations": {}
+      }
+    }
+  },
+  "groupId": "io.joshuasalcedo.parser",
+  "artifactId": "parser-maven",
+  "version": "1.0-SNAPSHOT",
+  "packaging": "jar",
+  "root": false,
+  "preserveModelVersion": false,
+  "licenses": [],
+  "developers": [],
+  "contributors": [],
+  "mailingLists": [],
+  "profiles": [],
+  "modules": [],
+  "subprojects": [],
+  "properties": {},
+  "dependencies": [
+    {
+      "groupId": "org.apache.maven",
+      "artifactId": "maven-model",
+      "version": "4.0.0-rc-3",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 20,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 22,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 19,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 21,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven.resolver",
+      "artifactId": "maven-resolver-api",
+      "version": "2.0.9",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 26,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 28,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 25,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 27,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.codehaus.plexus",
+      "artifactId": "plexus-container-default",
+      "version": "2.1.1",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 34,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 36,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 33,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 35,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven",
+      "artifactId": "maven-core",
+      "version": "3.9.6",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 41,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 43,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 40,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 42,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven",
+      "artifactId": "maven-compat",
+      "version": "3.9.6",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 48,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 50,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 47,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 49,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven",
+      "artifactId": "maven-settings-builder",
+      "version": "3.9.6",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 55,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 57,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 54,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 56,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven",
+      "artifactId": "maven-repository-metadata",
+      "version": "3.9.6",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 62,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 64,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 61,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 63,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven.resolver",
+      "artifactId": "maven-resolver-api",
+      "version": "1.9.18",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 69,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 71,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 68,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 70,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven.resolver",
+      "artifactId": "maven-resolver-impl",
+      "version": "1.9.18",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 75,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 77,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 74,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 76,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven.resolver",
+      "artifactId": "maven-resolver-connector-basic",
+      "version": "1.9.18",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 81,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 83,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 80,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 82,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven.resolver",
+      "artifactId": "maven-resolver-transport-file",
+      "version": "1.9.18",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 87,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 89,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 86,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 88,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven.resolver",
+      "artifactId": "maven-resolver-transport-http",
+      "version": "1.9.18",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 93,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 95,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 92,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 94,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven",
+      "artifactId": "maven-core",
+      "version": "4.0.0-rc-3",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 100,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 102,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 99,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 101,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven",
+      "artifactId": "maven-artifact",
+      "version": "4.0.0-rc-3",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 106,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 108,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 105,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 107,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven.shared",
+      "artifactId": "maven-dependency-tree",
+      "version": "3.3.0",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 113,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 115,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 112,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 114,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.apache.maven.shared",
+      "artifactId": "maven-invoker",
+      "version": "3.3.0",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 119,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 121,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 118,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 120,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    }
+  ],
+  "repositories": [],
+  "pluginRepositories": [],
+  "locations": {
+    "dependencies": {
+      "lineNumber": 17,
+      "columnNumber": 5,
+      "locations": {}
+    },
+    "artifactId": {
+      "lineNumber": 14,
+      "columnNumber": 5,
+      "locations": {}
+    },
+    "modelVersion": {
+      "lineNumber": 5,
+      "columnNumber": 5,
+      "locations": {}
+    },
+    "": {
+      "lineNumber": 2,
+      "columnNumber": 1,
+      "locations": {}
+    },
+    "version": {
+      "lineNumber": 15,
+      "columnNumber": 5,
+      "locations": {}
+    },
+    "parent": {
+      "lineNumber": 7,
+      "columnNumber": 5,
+      "locations": {}
+    },
+    "groupId": {
+      "lineNumber": 13,
+      "columnNumber": 5,
+      "locations": {}
+    }
+  

@@ -73,13 +73,13 @@ public class JavaProjectAnalyzer implements AutoCloseable {
         }
         
         // Run analyses based on configuration
-        DependencyResult dependencyResult = null;
+        ProjectDependencyResult projectDependencyResult = null;
         MetricsResult metricsResult = null;
         GraphResult graphResult = null;
         
         if (config.isParallelAnalysis() && executor != null) {
             // Run analyses in parallel using CompletableFuture
-            CompletableFuture<DependencyResult> dependencyFuture = null;
+            CompletableFuture<ProjectDependencyResult> dependencyFuture = null;
             CompletableFuture<MetricsResult> metricsFuture = null;
             
             if (config.isAnalyzeDependencies()) {
@@ -99,7 +99,7 @@ public class JavaProjectAnalyzer implements AutoCloseable {
             // Wait for all analyses to complete and get results
             try {
                 if (dependencyFuture != null) {
-                    dependencyResult = dependencyFuture.get();
+                    projectDependencyResult = dependencyFuture.get();
                 }
                 if (metricsFuture != null) {
                     metricsResult = metricsFuture.get();
@@ -112,9 +112,9 @@ public class JavaProjectAnalyzer implements AutoCloseable {
             // Run analyses sequentially
             if (config.isAnalyzeDependencies()) {
                 DependencyAnalyzer depAnalyzer = new DependencyAnalyzer(project, projectDir.getAbsolutePath());
-                dependencyResult = depAnalyzer.analyze();
+                projectDependencyResult = depAnalyzer.analyze();
             } else {
-                dependencyResult = null;
+                projectDependencyResult = null;
             }
 
             if (config.isAnalyzeMetrics()) {
@@ -126,8 +126,8 @@ public class JavaProjectAnalyzer implements AutoCloseable {
         }
         
         // Generate graphs if requested
-        if (config.isGenerateGraphs() && dependencyResult != null) {
-            GraphAnalyzer graphAnalyzer = new GraphAnalyzer(project, dependencyResult);
+        if (config.isGenerateGraphs() && projectDependencyResult != null) {
+            GraphAnalyzer graphAnalyzer = new GraphAnalyzer(project, projectDependencyResult);
             graphResult = graphAnalyzer.analyze();
         }
         
@@ -139,7 +139,7 @@ public class JavaProjectAnalyzer implements AutoCloseable {
         return new ProjectAnalysisResult(
             project,
             statistics,
-            dependencyResult,
+                projectDependencyResult,
             metricsResult,
             graphResult,
             analysisTime
@@ -172,7 +172,7 @@ public class JavaProjectAnalyzer implements AutoCloseable {
     /**
      * Analyze only dependencies
      */
-    public DependencyResult analyzeDependencies(String projectPath) throws IOException {
+    public ProjectDependencyResult analyzeDependencies(String projectPath) throws IOException {
         File projectDir = new File(projectPath);
         validateProjectDirectory(projectDir);
         

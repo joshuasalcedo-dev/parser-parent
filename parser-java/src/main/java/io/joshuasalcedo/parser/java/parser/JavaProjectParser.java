@@ -3,6 +3,7 @@ package io.joshuasalcedo.parser.java.parser;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseResult;
+import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.*;
@@ -24,7 +25,13 @@ import java.util.stream.Collectors;
 public class JavaProjectParser {
     
     private final Map<String, ClassRepresentation> classMap = new HashMap<>();
-    private final JavaParser javaParser = new JavaParser();
+    private final JavaParser javaParser;
+    
+    public JavaProjectParser() {
+        ParserConfiguration config = new ParserConfiguration();
+        config.setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21);
+        this.javaParser = new JavaParser(config);
+    }
     
     /**
      * Parse a Java project from the given root path
@@ -48,7 +55,7 @@ public class JavaProjectParser {
         );
         
         for (String sourcePath : sourcePaths) {
-            Path sourceDir = Paths.get(rootPath, sourcePath);
+            Path sourceDir = Paths.get(rootPath, sourcePath).normalize();
             if (Files.exists(sourceDir) && Files.isDirectory(sourceDir)) {
                 parseDirectory(sourceDir, project);
             }
@@ -138,6 +145,9 @@ public class JavaProjectParser {
             });
         } else if (type instanceof EnumDeclaration) {
             classRep.setEnum(true);
+        } else if (type.getClass().getSimpleName().equals("RecordDeclaration")) {
+            // Handle records - JavaParser may have RecordDeclaration but we avoid hard dependency
+            classRep.setRecord(true);
         }
         
         // Annotations

@@ -13,7 +13,7 @@ import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSol
 import com.github.javaparser.symbolsolver.resolution.typesolvers.JarTypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.JavaParserTypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
-import io.joshuasalcedo.parser.java.model.DependencyResult;
+import io.joshuasalcedo.parser.java.model.ProjectDependencyResult;
 import io.joshuasalcedo.parser.java.model.*;
 
 import java.io.File;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 /**
  * Analyzes project dependencies using JavaParser's symbol resolver for accurate type resolution
  */
-public class DependencyAnalyzer extends AbstractAnalyzer<DependencyResult> {
+public class DependencyAnalyzer extends AbstractAnalyzer<ProjectDependencyResult> {
     
     private final String projectPath;
     private final JavaSymbolSolver symbolSolver;
@@ -74,7 +74,7 @@ public class DependencyAnalyzer extends AbstractAnalyzer<DependencyResult> {
     }
     
     @Override
-    public DependencyResult analyze() {
+    public ProjectDependencyResult analyze() {
         // Parse all compilation units and inject symbol solver
         parseAndInjectSymbolSolver();
         
@@ -89,7 +89,7 @@ public class DependencyAnalyzer extends AbstractAnalyzer<DependencyResult> {
         Set<String> unusedClasses = detectUnusedClasses();
         Map<String, Set<String>> packageDependencies = analyzePackageLevelDependencies();
         
-        return new DependencyResult(
+        return new ProjectDependencyResult(
             classDependencies,
             methodCalls,
             fieldReferences,
@@ -418,7 +418,7 @@ public class DependencyAnalyzer extends AbstractAnalyzer<DependencyResult> {
     }
     
     @Override
-    public void printResults(DependencyResult results) {
+    public void printResults(ProjectDependencyResult results) {
         System.out.println("\n=== Dependency Analysis Results ===");
         
         // Circular dependencies
@@ -463,7 +463,7 @@ public class DependencyAnalyzer extends AbstractAnalyzer<DependencyResult> {
     }
     
     @Override
-    public void exportResults(DependencyResult results, String outputPath) {
+    public void exportResults(ProjectDependencyResult results, String outputPath) {
         // Export to various formats (JSON, GraphML, DOT)
         // Implementation would go here
     }

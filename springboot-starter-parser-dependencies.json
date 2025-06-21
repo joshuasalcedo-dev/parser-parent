@@ -1,0 +1,646 @@
+{
+  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+  "modelEncoding": "UTF8",
+  "modelVersion": "4.0.0",
+  "parent": {
+    "groupId": "org.springframework.boot",
+    "artifactId": "spring-boot-starter-parent",
+    "version": "3.5.0",
+    "relativePath": "",
+    "locations": {
+      "": {
+        "lineNumber": 7,
+        "columnNumber": 5,
+        "locations": {}
+      },
+      "groupId": {
+        "lineNumber": 8,
+        "columnNumber": 9,
+        "locations": {}
+      },
+      "relativePath": {
+        "lineNumber": 11,
+        "columnNumber": 9,
+        "locations": {}
+      },
+      "version": {
+        "lineNumber": 10,
+        "columnNumber": 9,
+        "locations": {}
+      },
+      "artifactId": {
+        "lineNumber": 9,
+        "columnNumber": 9,
+        "locations": {}
+      }
+    }
+  },
+  "groupId": "io.joshuasalcedo.parser",
+  "artifactId": "springboot-starter-parser",
+  "version": "1.0-SNAPSHOT",
+  "packaging": "jar",
+  "name": "Spring Boot Starter - Java Parser",
+  "description": "Spring Boot starter for Java project analysis and parsing",
+  "root": false,
+  "preserveModelVersion": false,
+  "licenses": [],
+  "developers": [],
+  "contributors": [],
+  "mailingLists": [],
+  "build": {
+    "sources": [],
+    "extensions": [],
+    "resources": [],
+    "testResources": [],
+    "filters": [],
+    "plugins": [
+      {
+        "groupId": "org.apache.maven.plugins",
+        "artifactId": "maven-compiler-plugin",
+        "executions": [],
+        "dependencies": [],
+        "configuration": {
+          "prefix": "",
+          "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+          "name": "configuration",
+          "attributes": {},
+          "children": [
+            {
+              "prefix": "",
+              "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+              "name": "annotationProcessorPaths",
+              "attributes": {},
+              "children": [
+                {
+                  "prefix": "",
+                  "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                  "name": "path",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "groupId",
+                      "value": "org.springframework.boot",
+                      "attributes": {},
+                      "children": [],
+                      "location": {
+                        "lineNumber": 136,
+                        "columnNumber": 29,
+                        "locations": {}
+                      }
+                    },
+                    {
+                      "prefix": "",
+                      "namespaceUri": "http://maven.apache.org/POM/4.0.0",
+                      "name": "artifactId",
+                      "value": "spring-boot-configuration-processor",
+                      "attributes": {},
+                      "children": [],
+                      "location": {
+                        "lineNumber": 137,
+                        "columnNumber": 29,
+                        "locations": {}
+                      }
+                    }
+                  ],
+                  "location": {
+                    "lineNumber": 135,
+                    "columnNumber": 25,
+                    "locations": {}
+                  }
+                }
+              ],
+              "location": {
+                "lineNumber": 134,
+                "columnNumber": 21,
+                "locations": {}
+              }
+            }
+          ],
+          "location": {
+            "lineNumber": 133,
+            "columnNumber": 17,
+            "locations": {}
+          }
+        },
+        "locations": {
+          "groupId": {
+            "lineNumber": 131,
+            "columnNumber": 17,
+            "locations": {}
+          },
+          "": {
+            "lineNumber": 130,
+            "columnNumber": 13,
+            "locations": {}
+          },
+          "configuration": {
+            "lineNumber": 133,
+            "columnNumber": 17,
+            "locations": {}
+          },
+          "artifactId": {
+            "lineNumber": 132,
+            "columnNumber": 17,
+            "locations": {}
+          }
+        }
+      }
+    ],
+    "locations": {
+      "": {
+        "lineNumber": 128,
+        "columnNumber": 5,
+        "locations": {}
+      },
+      "plugins": {
+        "lineNumber": 129,
+        "columnNumber": 9,
+        "locations": {}
+      }
+    }
+  },
+  "profiles": [],
+  "modules": [],
+  "subprojects": [],
+  "properties": {
+    "java.version": "24",
+    "springdoc.version": "2.2.0"
+  },
+  "dependencies": [
+    {
+      "groupId": "io.joshuasalcedo.parser",
+      "artifactId": "parser-java",
+      "version": "1.0-SNAPSHOT",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 28,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 30,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 27,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 29,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.springframework.boot",
+      "artifactId": "spring-boot-starter-web",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 35,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 34,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 36,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.springframework.boot",
+      "artifactId": "spring-boot-configuration-processor",
+      "type": "jar",
+      "exclusions": [],
+      "optional": "true",
+      "locations": {
+        "groupId": {
+          "lineNumber": 41,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "optional": {
+          "lineNumber": 43,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 40,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 42,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.springframework.boot",
+      "artifactId": "spring-boot-autoconfigure",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 48,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 47,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 49,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.springdoc",
+      "artifactId": "springdoc-openapi-starter-webmvc-ui",
+      "version": "${springdoc.version}",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 54,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 56,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 53,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 55,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "com.github.javaparser",
+      "artifactId": "javaparser-core",
+      "version": "3.27.0",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 61,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 63,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 60,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 62,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "com.github.javaparser",
+      "artifactId": "javaparser-symbol-solver-core",
+      "version": "3.27.0",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 68,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 70,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 67,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 69,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "com.github.javaparser",
+      "artifactId": "javaparser-core-serialization",
+      "version": "3.27.0",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 75,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 77,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 74,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 76,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "com.github.javaparser",
+      "artifactId": "javaparser-core-generators",
+      "version": "3.27.0",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 82,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 84,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 81,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 83,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "com.github.javaparser",
+      "artifactId": "javaparser-generator-utils",
+      "version": "3.1.0-beta.1",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 88,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 90,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 87,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 89,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "info.picocli",
+      "artifactId": "picocli",
+      "version": "4.7.7",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 95,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 97,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 94,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 96,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.freemarker",
+      "artifactId": "freemarker",
+      "version": "2.3.34",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 102,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 104,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 101,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 103,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "com.github.javaparser",
+      "artifactId": "javaparser-symbol-solver-logic",
+      "version": "3.15.15",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 109,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 111,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 108,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 110,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "com.github.javaparser",
+      "artifactId": "javaparser-metamodel",
+      "version": "3.1.0-beta.1",
+      "type": "jar",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 115,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "version": {
+          "lineNumber": 117,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 114,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 116,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    },
+    {
+      "groupId": "org.springframework.boot",
+      "artifactId": "spring-boot-starter-test",
+      "type": "jar",
+      "scope": "test",
+      "exclusions": [],
+      "locations": {
+        "groupId": {
+          "lineNumber": 122,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "": {
+          "lineNumber": 121,
+          "columnNumber": 9,
+          "locations": {}
+        },
+        "artifactId": {
+          "lineNumber": 123,
+          "columnNumber": 13,
+          "locations": {}
+        },
+        "scope": {
+          "lineNumber": 124,
+          "columnNumber": 13,
+          "locations": {}
+        }
+      }
+    }
+  ],
+  "repositories": [],
+  "pluginRepositories": [],
+  "locations": {
+    "name": {
+      "lineNumber": 17,
+      "columnNumber": 5,
+      "locations": {}
+    },
+    "groupId": {
+      "lineNumber": 14,
+      "columnNumber": 5,
+      "locations": {}
+    },
+    "dependencies": {
+      "lineNumber": 25,
+      "columnNumber": 5,
+      "locations": {}
+    },
+    "description": {
+      "lineNumber": 18,
+      "columnNumber": 5,
+      "locations": {}
+    },
+    "": {
+      "lineNumber": 2,
+      "columnNumber": 1,
+      "locations": {}
+    },
+    "version": {
+      "lineNumber": 16,
+      "columnNumber": 5,
+      "locations": {}
+    },
+    "properties": {
+      "lineNumber": 20,
+      "columnNumber": 5,
+      "locations": {
+        "java.version": {
+          "lineNumber": 21,
+          "columnNumber": 25,
+          "locations": {}
+        },
+        "springdoc.version": {
+          "lineNumber": 22,
+          "columnNumber": 33,
+          "locations": {}
+        }
+      }
+    },
+    "parent": {
+      "lin
